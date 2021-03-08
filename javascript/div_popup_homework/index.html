@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>modal popup</title>
+    <link rel="stylesheet" href="style/style.css" type="text/css" />
+</head>
+
+<body onload="inputImg();">
+    <div id="container">
+        <div id="setImg"></div>
+    </div>
+
+    <div id="modalDiv"></div> <!--창 가리기-->
+
+    <div id="popDiv">
+        <span id="imgName" onmousedown="setMoveStart();">이미지 파일명</span>
+        <img src="img/img1.jpg" onclick="closePopup();" id="popImg"/>
+    </div>
+</body>
+</html>
+
+<script src="jscript/function.js"></script>

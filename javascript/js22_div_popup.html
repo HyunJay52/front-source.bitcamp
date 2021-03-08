@@ -44,9 +44,15 @@
         var popup;
         //팝업창 이동
         function setXY(){
+            var cookie = document.cookie;
+            console.log(cookie);
             popup = document.getElementById("popup").style;
-            popup.left="300px";
-            popup.top="200px";
+            if(cookie.indexOf("event")==-1){
+                popup.left="300px";
+                popup.top="200px";
+            }else{
+                popup.display="hidden";   
+            }
         }
         //닫기 버튼 기능
         function setPopupClose(){
@@ -108,6 +114,7 @@
             }
             popup.display="none";
         }
+        //function popup
     </script>
 </head>
 

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQUERY CSS ATTR PROP</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(
+            function () {
+                //jqery 실행부
+
+                //jqeury 선택자: 태그, 클래스, id, 부모-자식-형제 등 ...
+                
+                //스타일 시트 속성 처리방법 > 선택자 사용방식?
+                    //01. 태그 선택자 사용 방식 $("선택자=태그").css("속성", "속성값");
+                    $("input").css("font-size","2em");   //cf.자바스크립트만 fontSize로 기입
+                    //02. 아이디 선택자 사용 방식 $("#id").css("속성", "속성값");
+                    $("#username").css("color","green");
+                    //03. 클래스 선택자 사용 방식 $(".class").css("속성", "속성값");
+                    $(".c1").css("background-color","pink");
+                
+                //html 속성 처리 방법 > 속성명과 속성값이 모두 존재 할 경우 attr('html 속성', '속성값') attr=attribute
+                    $("img").attr("src","../img/hobby3.gif");
+                    $(".c1").attr("value", '홍길동');
+
+                //html 속성 처리 방법  > 속성명만 있고 속성값은 없는 경우   ex>readonly or checked
+                $("#username").prop("readonly", true);
+                $('#hobby').prop('checked', true);
+
+                console.log(  $('#hobby').prop('checked') ); //현재상태의 값을 보여줌
+                console.log(  $('#username').attr("value")  );  //속성명이 가지고 있는 값을 보여줌, 값도 같이 쓰면 값이 변경된다.
+                //console.log(  $('#username').attr("value","김길동")  );  //속성명이 가지고 있는 값을 보여줌, 값도 같이 쓰면 값이 변경된다.
+            }
+        );
+    </script>
+
+</head>
+<body>
+    <div>jquery에서 스타일 적용</div>
+    <input type="text" id="username" name="username" class="c1"/>
+    <input type="checkbox" id="hobby"/>prop로 checked 속성처리
+    <h2>html 속성을 jquery에서 제어하기</h2>
+    <img src="../img/zoom.gif"/>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상태 선택자</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(function () {
+            //상태선택자
+            //:text > 속성값이 text인 객체를 선택한다.
+            $(':text').css("background-color", 'pink');
+            //:checked > attr('checked', false)해제
+            $(':checked').attr('checked', false);
+            //selectedIndex > 선택된 목록의 index를 구해줌, .val() 선택된 목록의 값을 보여줌
+            console.log($('#site').prop('selectedIndex'), ", ", $('#site').val());
+            //:selected
+            $(':selected').attr('selected', false);
+            
+            //컨텐츠 선택자
+            $('p').css("margin","10px").css("padding","10px").css("border","3px solid green");
+            //contains() : 특정문자열이 포함된 경우 선택함
+            $('p:contains("현대차 간판급 중형 세단")').css('background-color','lightyellow');
+            //has() : 하위의 특정 태그가 포함되는 경우 선택함
+            $("p:has('b')").css('color', 'blue');
+            //not() :특정 선택자를 제외한 나머지를 선택함
+            $("p:not(':first')").css('color', 'magenta');
+            //closest() : 조상선택자, i의 상위 태그들 중 하나를 선택 할 수 있다
+            $('i').closest("body").css('border','3px dashed lightgreen');
+            //fliter()
+            $('p').filter(".c1").css('text-decoration', 'underline');
+            //content() : 선택자의 하위 내용이 다른 태그에 포함된 경우 ... p 안에 있는 bold랑 itelic만 커짐
+            $('p').contents().css('font-size', '2em');
+        });
+
+    </script>
+</head>
+
+<body>
+    <div>
+        <p>현대차 간판급 중형 세단 <b>쏘나타 판매 부진이 아산 공장 가동 중단</b>으로 이어졌다.
+            현대차는 8일 전자공시를 통해 아산 공장 가동을 일시적으로 중단한다고 밝혔다.
+            8일 시작한 가동중단은 잠정적으로 오는 15일 재개될 예정이다.
+            현대차는 생산 중단 이유를 "시장 수요 감소에 기초적 생산 공급" 조절로 적정 재고를 유지하기 위한 것이라고 밝혔다.
+            판매 부진으로 쌓여 있는 재고 조절을 위해 생산을 중단하겠다는 것이다.
+            지난해 연말에 이어 다시 가동 중단에 들어간 직접 원인은 아산 공장에서 생산하는 쏘나타 판매 부진으로 파악된다.
+        </p>
+        <p class="c1">업계에서는 쏘나타 부진을 국민차 타이틀을 걷어내고 타깃 연령대를 높인 탓으로 보고 있다. 
+            준대형급으로 자동차 주력 연령대가 상승하면서 그랜저로 수요가 쏠린 반면, 
+            젊은층은 세단보다 소형 SUV를 선호하면서 보수적 이미지가 강한 쏘나타보다 스포티 감성이 강조된 K5에 역전을 허용했다고 보는 것이다.
+        </p>
+        <p class="c1">현대차 간판급 중형 세단 쏘나타 판매 부진이 아산 공장 가동 중단으로 이어졌다.
+            현대차는 <i>8일 전자공시를 통해 아산 공장 가동을 일시적으로 중단</i>한다고 밝혔다.
+            8일 시작한 가동중단은 잠정적으로 오는 15일 재개될 예정이다.
+            현대차는 생산 중단 이유를 "시장 수요 감소에 기초적 생산 공급" 조절로 적정 재고를 유지하기 위한 것이라고 밝혔다.
+            판매 부진으로 쌓여 있는 재고 조절을 위해 생산을 중단하겠다는 것이다.
+            지난해 연말에 이어 다시 가동 중단에 들어간 직접 원인은 아산 공장에서 생산하는 쏘나타 판매 부진으로 파악된다.
+        </p>
+    </div>
+    <form>
+        <ul style="margin:20px; padding:20px;">
+            <li>이름</li>
+            <li><input type="text" name="username" id="username" /></li>
+            <li><label>연락처</label></li>
+            <li><input type="text" name="tel" id="tel" /></li>
+            <li><label>사용동의 여부</label></li>
+            <li><input type="radio" name="accept" value="yes" checked />동의
+                <input type="radio" name="accept" value="no" />동의안함
+            </li>
+            <li><label>자주가는 사이트</label></li>
+            <li>
+                <select name="site" id="site">
+                    <option value="not">==직접선택==</option>
+                    <option value="daum">다음</option>
+                    <option value="nate" selected>네이트</option>
+                    <option value="naver">네이버</option>
+            </li>
+            <li>
+                <input type="button" value="확인" />
+            </li>
+
+        </ul>
+
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,118 @@
+@charset "UTF-8";
+/*
+	전체 사이즈 600*516
+	칸 하나 사이즈 190*140
+*/
+body{
+    width:100%; height:100%;
+}
+/*메인 화면*/
+#mainf{
+    width:600px; height:520px;
+	background-color:#fff;
+}
+
+#text{
+    width:400px; height:347px;
+    float: left;
+}
+#txt1{
+    margin: 0; padding: 0;
+    width:400px; height:174px;
+}
+#txt1>ul{
+    margin: 0; padding: 0;
+    width: 200px; height: 174px;
+    float: left;
+}
+#txt2{
+    margin: 0; padding: 0;
+    width:400px; height:173px;
+    margin:0;
+}
+#txt2 ul{
+    margin: 0; padding: 0;
+    width: 200px; height: 173px;
+    float: left;
+}
+#topic{
+    padding: 5px 0px;
+    width:180px; height:345px;
+    text-align: center;
+    float: left;
+}
+#topic>a>img{
+    border: 1px solid #ddd;
+}
+#linkPage{
+    width: 600px; height: 174px;
+}
+#linkPage ul{
+    margin: 5px 5px; padding: 0;
+    width: 185px; height:174px;
+    border: 1px solid #ddd;
+    overflow: auto;
+    float: left;
+}
+
+#linkPage>li>a:active{
+    text-decoration: none;
+}
+
+li{
+    list-style-type: none;
+}
+
+#txt1>ul{
+    margin:5px 5px;
+    width:185px; height:165px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+}
+#txt2>ul{
+    margin:5px 5px;
+    width:185px; height:165px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+}
+
+/*class*/
+.qStyle{
+    padding: 35px 0px  10px 15px;
+    width: 20px; height: 20px;
+    color: rgb(41,188,211);
+    font-weight: bold;
+    float: left;
+}
+.qFont{
+    padding: 35px 15px 10px 0px;
+    display: block;
+    font-weight: bold;
+    font-size: 0.8em;
+}
+.aStyle{
+    padding: 10px 0px  20px 15px;
+    display: block;
+    width: 20px; height: 55px;
+    color: rgb(117,116,116);
+    font-weight: bold;
+    float:left;
+}
+.aFont{
+    padding: 10px 15px  10px 0px;
+    display: block;
+    font-weight: bold;
+    font-size: 0.7em;
+}
+.linkBold{
+    padding: 10px 0px 0px 10px;
+    display: block;
+    font-weight: bold;
+    font-size: 0.8em;
+}
+.linkNormal{
+    padding: 5px 0px 0px 10px;
+    display: block;
+    font-size: 0.8em;
+    color:grey;
+}

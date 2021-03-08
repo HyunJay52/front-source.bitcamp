@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>* * * * 후손, 자손 선택자* * * * *</title>
+<!-- 
+	후손: 밑에 있는 모든 요소 body ul
+	자손: 바로 밑에 있는 애 div>ul
+ -->
+ 
+ <style>
+	/*자손선택자*/
+	div>ul{
+		background-color:yellow;
+	} 	
+ 	/*후손선택자*/
+ 	div h2{
+ 		color:red;
+ 	}
+ 	/*반응선택자*/
+ 	div li:hover{
+ 		/*마우스 올리면 색깔이 변함(오버), 아웃하면 원래 색으로*/
+ 		background-color:lightblue;
+ 	}
+ 	div li:active{
+ 		/*클릭 시 색깔 바뀜*/
+ 		color:pink;
+ 	}
+ </style>
+ 
+</head>
+<body>
+<div>
+	<ul>
+		<li>자손 후선택자111</li>
+		<li>자손 후선택자222</li>
+		<li>자손 후선택자333</li>
+		<li>자손 후선택자444
+			<h2>반응선택자....</h2>
+		</li>
+		<li>자손 후선택자555</li>
+	</ul>
+</div>	
+
+<ul>
+	<li>자손 후선택자111</li>
+	<li>자손 후선택자222</li>
+	<li>자손 후선택자333
+		<h2>반응선택자~~~~</h2>
+	</li>
+	<li>자손 후선택자444</li>
+	<li>자손 후선택자555</li>
+</ul>
+
+</body>
+</html>

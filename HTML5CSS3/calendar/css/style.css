@@ -1,0 +1,70 @@
+@charset "UTF-8";
+
+body, div, ul, li, span {
+        margin: 0; padding: 0;
+}
+ul, li {
+    list-style-type: none;
+}
+li{
+    
+}
+body {
+    width: 100%; height: 100%;
+    background-color:lightblue;
+}
+
+#main {
+    width:600px; height:1000px;
+    background-color:#fff;
+    margin:0 auto;
+    overflow: auto;
+}
+/*이미지 부분*/
+#top {
+    width:600px; height:40px;
+    background-color:forestgreen;
+}
+#top span {
+    display: block;
+    color: #fff;
+    font-size: 1.5em; font-weight: bold; line-height: 40px;
+    padding-left: 180px;
+}
+
+#imgDiv{
+    margin:20px 50px 10px 50px;
+}
+
+#imgDiv img{
+    width:500px; height:310px;
+    border:1px solid black;
+}
+
+/*달력 부분*/
+#calendar{
+    width:500px; height:400px;
+    background-color: aquamarine;
+    margin:0px 50px;
+}
+#calendar span{
+    font-weight: bold;
+    font-size: 1.5em;
+    line-height: 50px; width:500px;
+    float:left;
+    text-align: center;
+} 
+
+#weekName li{
+    width: 14.2%;
+    line-height:20px; text-align: center;
+    font-weight: bold; font-size: 1.2em;
+    margin-top: 10px; margin-bottom: 10px;
+    float:left;
+}
+
+#days li{
+    width: 14.2%; height:50px;
+    line-height:50px; text-align: center; font-size: 1.2em;
+    float:left;
+}

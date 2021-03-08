@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>select adjoin 인접선택자</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script>
+
+    /*  선택자 있고 함수
+        $(document).ready(function () {
+            //실행부
+        }); 아래와 같음 */
+
+        //선택자 생략하고 바로 함수
+        $(function () {
+            //실행부 
+            //인접선택자
+            //$('*')': 전체선택자, 태그선택자, 아이디선택자, 클래스선택자, 후손선택자($('div h1')), 자손선택자($("div>h1"))
+            //children(): 자손을 선택
+            $("div").children('.one').css('color', 'green').css('background-color', 'pink');
+            //next(): 선택자의 다음 객체를 선택함
+            $('#first').next().css('text-decoration','underline');
+            //prev(): 선택자의 이전 객체를 선택함
+            $('img').prev().css('border', '3px solid gray');
+            //parent(): 선택자의 부모객체를 선택함
+            $("#first").parent().css('background-color','lightyellow');
+            //siblings(): 선택자의 형제 객체를 선택, 본인 제외 
+            $('#first').siblings().css('border','2px dotted red');
+
+            //중복사용 가능 ..img 선택
+            $('#frist').parent().next().css("border", "1px solid blue");
+            //$('#frist').parent().next().prev().children('#first').css('border', '2px solid blue');
+        })
+    </script>
+</head>
+
+<body>
+    <div>
+        <h1 id="first">인접선택자 1</h1>
+
+        <h1 class="one">인접선택자 2</h1>
+
+        <h2 class="one">인접선택자 3</h2>
+
+        <h4>인접선택자 4</h4>
+
+        <h4>인접선택자 5</h4>
+
+        <h3>인접선택자 6</h3>
+        <h2>인접선택자 7</h2>
+    </div>
+    <img src="../img/zoom.gif" />
+</body>
+
+</html>

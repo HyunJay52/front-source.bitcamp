@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>css06_margin_padding</title>
+<style>
+	img{
+		width:100%;
+		vertical-align: bottom; /*이미지 하단의 공백 삭제*/
+	}
+	body{
+		border:solid gray 1px; 
+		border-space:0;
+		margin:0px;
+	}
+	/*
+		margin: 객체의 바깥쪽 여백을 확보, 세팅이 없으면 상하좌우 다 설정됨 (그룹화)
+			> margin-top, margin-bottom, margin-left, margin-right
+		padding: 객체의 안쪽 여백을 확보
+			> padding-top, padding-bottom, padding-right, padding-left
+	*/
+	body{
+		margin-left:100px;
+		margin:0px 100px 50px;
+	}
+	h1{
+		background-color:orange;
+		margin:0px;
+		padding:10px; /* 배경색도 같이 넓어진다. = padding 컨텐츠 영역 안에 있음 */
+	}
+</style>
+</head>
+<body>
+<h1>margin, padding testing...</h1> <!-- 기본 세팅되어있는 Padding이 없다. -->
+<img src="../img/clouds.jpg"/>
+</body>
+</html>

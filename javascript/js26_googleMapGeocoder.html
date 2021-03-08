@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gMap geocode</title>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBiyi8IBKuUJnY0RccI6KvVWJslar5cPWg&callback=initMap">
+    </script>
+
+    <style>
+        #mapSearch{
+            position: absolute;
+            top: 100px;
+            left: 400px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="gMap"></div>
+    <!--검색키 입력-->
+    <div id="mapSearch">
+        <input type="text" id="addrSearch"/>
+        <input type="button" value="Search" onclick="mapSearchStart()"/>
+    </div>
+    <script>
+        var latitude, longitude;
+        var pAddr; //지명
+        var pHome; //홈페이지 주소
+        var pImg; //이미지 리스트(대표이미지)
+        function setMap() {
+            latitude = 37.572950;
+            longitude = 126.9793578;
+
+            pAddr = ['서울 선유도', '서울 뚝섬', '서울 잠실종합운동장', '서울 시청'];
+            pHome = ['https://parks.seoul.go.kr/template/sub/seonyudo.do', 'https://hangang.seoul.go.kr/archives/46661',
+                'https://stadium.seoul.go.kr/reserve/jamsil', 'http://https://www.seoul.go.kr/main/index.jsp'
+            ];
+            pImg = ['img1.jpg','img5.jpg','img3.jpg','img4.jpg'];
+        }
+
+        var map, geoCoder;
+        function initMap() {
+            setMap();
+
+            document.getElementById("gMap").style.height = window.innerHeight - 20 + "px";
+
+            var myCenter = new google.maps.LatLng(latitude, longitude);
+            var option = {
+                center: myCenter,
+                zoom: 12,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+
+            map = new google.maps.Map(document.getElementById("gMap"), option);
+
+            geoCoder = new google.maps.Geocoder(); //지명으로 지도 위치를 설정 할 수 있는 객체 
+            for(var i=0; i<pAddr.length; i++){
+                setGeocoderPosition(pAddr[i], pHome[i], pImg[i]);
+            }
+        }
+
+        function setGeocoderPosition(addr, home, img){
+            geoCoder.geocode(
+                //지도를 표시 할 지명을 표시한다..
+                {'address' : addr},
+                //지명이 존재하는 곳이면 status에 'OK'가 들어간다, result에 지명에대한 위도/경도 정보를 담아준다.
+                function (results, status) {
+                    if(status==='OK'){ //주소가 있으면
+                        //지정된 위치를 센터로 옮겨주는 작업, loction에 위도 경도가 담겨있음.
+                        map.setCenter(results[0].geometry.location);
+                        //현재 위치 마킹
+                        var marker = new google.maps.Marker({
+                            map : map,
+                            icon : '../img/gmap_pin.png',
+                            title : results[0]['formatted_address'], //주소=formatted_address가 가지고 있다
+                            position : results[0].geometry.location
+                        });
+
+                        //팝업에 나올 내용
+                        var la = results[0]['geometry']['location']['lat'](); //위도
+                        var ln = results[0]['geometry']['location']['lng'](); //경도
+                        var add = results[0]['formatted_address']; //주소
+
+                        var infoText = "위도: "+la+"<br/>경도: "+ln+"<br/>주소: "+add+"<br/>";
+                            infoText += "<a href='"+home+"'><img src='../img/"+img+"' width='80' height='50'/></a>";
+                        var info = new google.maps.InfoWindow({content:infoText});
+
+                        //팝업 이벤트 처리
+                        google.maps.event.addListener(marker, 'mouseover', function() {info.open(map, marker)});
+                        google.maps.event.addListener(marker, 'mouseout', function(){info.close(map, marker)})
+
+                    }//if절 끝
+                }//function 끝
+            ); //Geocoder의 매서드
+        }
+
+        //지역 검색 > 지역명 검색하면 핀이 찍힘...
+        function mapSearchStart(){
+            var search = document.getElementById("addrSearch").value;
+            if(search!=""){
+                setGeocoderPosition(search, 'http://www.nate.com', 'img1.jpg'); //검색때마다 이미지 핀이 계속 추가됨
+            }
+        }
+    </script>
+</body>
+
+</html>

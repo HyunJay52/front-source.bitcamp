@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>css05_border</title>
+<style>
+	body{
+		border:1px solid red;
+	}
+	
+	ul{
+	/*	선의 모양 : border-style(그롭화)	
+		border-style:dotted; ul 모두 적용됨
+		border-top-style:solid;
+		border-right-style:dashed;
+		border-bottom-style:double;
+		border-left-style:dotted;	
+		
+		border-style:solid dashed double dotted;
+	*/	
+		border-style:solid double;
+		
+	/*	선의 두께	
+		border-top-width:5px;
+		border-right-width:10px;
+		border-bottom-width:15px;
+		border-left-width:20px;
+	*/	
+		border-width:5px 10px 15px 20px;
+		
+	/*	선의 색상
+		border-top-color:pink;
+		border-bottom-color:lightgreen;
+	*/	
+		border-color: pink lightgreen lightblue;
+		
+		border: dotted 10px orange;
+		
+		border-radius: 30px 30px;
+	} 
+		
+	img{
+		border:10px double lightblue;
+		border-radius: 30px 30px; /*모서리 깎아주기*/
+	}
+
+</style>
+</head>
+<body>
+<h1>border 속성? (블록의) 선의 색상, 두께, 모양을 설정</h1>
+
+<ul>
+	<li>border-style: 선의 모양(solid실선, dotted점선, double이중선, dashed대쉬선, none선없음, groove홈, inset볼록선)</li>
+	<li>border-witth: 선의 두께 px 단위 </li>
+	<li>border-color: 선의 색상(rgb코드, 컬러명)</li>
+
+</ul>
+
+<div>
+	<ul>
+		<li>Html</li>
+		<li>css</li>
+		<li>javaScript</li>
+	
+	</ul>
+	
+</div>
+<p>
+<img src="../img/hobby3.gif"/>
+</p>
+응고지 오콘조이웨알라 (Ngozi Okonjo-Iweala,1954년 6월 13일 - )는 나이지리아 태생의 경제학자이자 국제 개발 전문가이다. 
+그녀는 스탠다드차타드 은행, 트위터, 세계백신면역연합 및 ARC (African Risk Capacity ) 이사회에서 활동하고 있다.
+2021년 2월 15일, 세계무역기구 사무총장으로 선출되었는데, 최초의 아프리카출신이자 여성 사무총장이다.
+
+</body>
+</html>

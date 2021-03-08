@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>java script function</title>
+    <script>
+        function hap(a, b) {
+            var r = a + b;
+            document.getElementById("result").innerHTML = a + "+" + b + "=" + r; //문자열 삽입
+        }
+
+        function output(name, tel) { //문자데이터를 변수로 이용 할 경우
+            document.getElementById("result").innerHTML = name + "+" + tel;
+        }
+
+        function imgChange(i, imgName) {
+            //i=img 객체 (hobby3.gif가 담긴 객체) imgName='zoom.gif'=String
+            i.src = "../img/" + imgName; //선택된 이미지 객체가 지정한 이미지로 변경, dome 방식 (tag를 객체처럼 사용)
+        }
+
+        function plus() {
+            var num1 = document.getElementById("n1").value;
+            var num2 = document.getElementById("n2").value;
+            console.log(isNaN(num1));
+            //is Not a Number() "10", "-10", "+10", "12.6", ".3" 모두 숫자로 인식 "" 이것도 숫자로 인식, "test"
+            //                   f      f       f       f     f               f                     t
+            //                  "" 이것도 숫자로 인식
+            //문자: true, 숫자:false, 빈문자:false
+            //   숫자(f)니까 !붙여서 t로 변경
+            if (!isNaN(num1) && !isNaN(num2) && num1!="" && num2!="" ) {
+                var n1 = parseInt(num1);
+                var n2 = parseInt(num2);
+                
+                var r = n1 + n2;
+                
+                document.getElementById("result").innerHTML = num1 + "+" + num2 + "=" + r;
+                //object                                    변수값?
+            }
+            else {
+                document.getElementById("result").innerHTML = "잘못 입력된 값입니다.";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <input type="text" id="n1" />
+    <input type="text" id="n2" />
+    <hr/>
+    <input type="button" value="plus2" onclick="plus()" />
+    <input type="button" value="plus" onclick="hap(40, 40)" />
+    <input type="button" value="multi" />
+    <input type="button" value="text" onclick="output('홍길동', '010-1111-2222')" />
+    <!-- 문자열을 바로 함수식에 넣었을 경우 에러가 발생한다 ''안에 문자 집어 넣어야함-->
+    <div id="result" style="background:pink"></div> <img src="../img/hobby3.gif" onclick="imgChange(this, 'lionee.png')" /> </body>
+
+</html>

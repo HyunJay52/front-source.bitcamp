@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 브라켓 > indent guides beauty.io -->
+<style>
+	div{
+		width:400px;
+		height:80px;
+		border:1px solid gray;
+	}
+	/*한 줄에 대한 말줄임*/
+	div:first-child{
+		white-space:nowrap;/*줄바꿈 없게 만들기*/ 
+		overflow:hidden;/*오버플로우된 문자열 숨기기*/	
+		text-overflow:ellipsis; /*말줄임*/
+	}
+	/*여러 줄에 대한 말줄임 > 아래의 모든 속성이 필요하다.*/
+	div:last-child{
+		text-align:left; /*문자를 왼쪽으로 정렬, 문자를 왼쪽 정렬하지 않으면 말줄임표가 안 보일 수 있다.*/
+		white-space:normal;
+		line-height:1.2;
+		height:6em;
+		overflow:hidden; /*넘친 문자 가려주기*/
+		word-wrap:break-word; /*잘릴 문자를 단어로 설정*/
+		display:-webkit-box; /*여백 삽입과 같이 유연한 높이 증가를 위해 플렉스 박스 형태로 변환*/
+		-webkit-line-clamp:5; /*보여줄 줄의 개수*/
+		-webkit-box-orient:vertical; /*vertical 박스의 방향설정*/
+		/*4줄 초과했을때 박스 높이가 크다면, 그 다음 줄의 글자가 보여진다.*/
+	}
+</style>
+</head>
+<body>
+
+<div>
+	출판사 측에 램지어 교수 논문의 문제를 제기한 이 교수는 "논거의 오용이나 왜곡, 인종차별이나 반인류적 범죄의 정당화는 비윤리적 출판행동에 해당한다"면서 "램지어 교수의 논문들은 모든 사항에 저촉될 수 있다"고 지적했다. 그러면서 "램지어 교수의 역사 관련 논문은 역사주제 학술 논문으로 낙제점"이라고 덧붙였다.
+</div>
+
+<hr/>
+
+<div>
+	출판사 측에 램지어 교수 논문의 문제를 제기한 이 교수는 "논거의 오용이나 왜곡, 인종차별이나 반인류적 범죄의 정당화는 비윤리적 출판행동에 해당한다"면서 "램지어 교수의 논문들은 모든 사항에 저촉될 수 있다"고 지적했다. 그러면서 "램지어 교수의 역사 관련 논문은 역사주제 학술 논문으로 낙제점"이라고 덧붙였다.
+</div>
+
+</body>
+</html>

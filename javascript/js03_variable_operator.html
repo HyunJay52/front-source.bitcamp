@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js variable operator</title>
+<script>
+    //계산가능
+    //연산자: +, -, *, /, %, >, <, <=, >=, !=, ==, +=, ... ,++, --, .., &&, ||, !
+    //명령어: if문, if~else, for, while, switch, do~while, break, continue
+    
+    var str = 'hong'; //"hong" or 'hong' ok!
+    var n = 1234;
+    var n2 = 12.22;
+    
+    //함수정의 : 처음 페이지 로딩시에는 실행이 안됨. 함수는 호출 시에만 실행된다.
+    //  function으로 안 묶어두면 바로 실행됨.
+    // > 구구단.... 버튼 클릭시 호출(이벤트) 
+    function gugudan() {
+        var dan = document.getElementById('num1').value;
+        var r = "";
+        for(var i=2; i<10; i++){
+            r += dan+"*"+i+"="+(dan*i)+"<br/>";
+        }
+        document.getElementById("result").innerHTML = r;
+        document.getElementById("num1").value = "";
+    }
+    function plus(){
+        //문자를 숫자로 바꾸는 방법?
+        var n1 = parseInt(document.getElementById("num1").value);
+        var n2 = parseInt(document.getElementById("num2").value);
+        
+        var result = n1+n2;
+        document.getElementById("result").innerHTML = result; //"덧셈" 문자가 합쳐짐:컴포넌트 안에 있는 데이터는 문자이다. > 숫자로 바꿔줘야한다.
+        document.getElementById("num1").value="";
+        document.getElementById("num2").value="";
+        
+    }
+    function imgChange(){
+        document.getElementById("i").src ="../img/zoom.gif";
+    }
+    function change(){
+        document.getElementById("i").src = "../img/lionee.png";
+    }
+    function welcome(){
+        alert("홈페이지에 오신 것을 환영합니다.");
+    }
+//    welcome();//함수호출 실행하면 바로 뜸.
+</script>    
+</head>
+<body onload="welcome()"> <!-- onload(js): 바디가 실행되면 바로 실행됨 -->
+수: <input type="text" id="num1"/>
+수: <input type="text" id="num2"/>
+<input type="button" value="구구단" onclick="gugudan()"/>  <!--onclick 부분이 실행됨.-->
+<input type="button" value="더하기" onclick="plus()"/>
+    <div id="result"></div>
+        <script>
+           // document.getElementById("result").innerHTML=r;
+        </script>
+    <!-- 이미지 객체            --><!--변수명-->    
+    <img src="../img/lionee.png" id="i" onmouseover="imgChange()" onmouseout="change()"/><br/>
+    <img src="../img/lionee.png" id="i" onmouseover="this.src='../img/hobby3.gif'" onmouseout="this.src='../img/lionee.png'"/>
+                                                    <!-- this=img -->
+    
+</body>
+</html>

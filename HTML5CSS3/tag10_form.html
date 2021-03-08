@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- 
+	meta tag? 일반적으로 title 밑에 두는데 title에 한글이 들어갈 수도 있으니까 위에 둠
+	- 속성 확인은 tag11에서 확인 -
+  -->
+<meta charset="UTF-8">
+<title>tag10_form</title>
+</head>
+<body>
+<!-- 
+	로그인 폼 회원가입 폼 등 ...
+	사용자가 정보를 입력이나 선택 할 수 있는 폼
+	
+	input : 아이디, 비밀번호, checkbox, button, radiobutton 들
+	select - option 
+	textarea
+	
+	html에서 입력 받은 데이터(Client)는 html에서 처리가 안되니까 server에 보내기 위한 변수가 필요하다
+	name: 변수 지정,		value: 값 지정(회원정보 수정시, 저장된 값 설정)		placeholder : 입력 안내 글		
+	size : 박스의 폭을 글자 수로 지정		maxlength : 최대입력 문자 수
+	e.g) input type="text" name="userid" value="goguma111" 
+	
+	checkbox 같은 정보에서 하나의 선택지를 서버에 보내기 위해서는 이름(변수명)을 동일하게 해준다
+	radio 변수명이 다르면 두 개다 선택 가능, 변수명이 같으면 하나만 선택 가능
+	
+ -->
+ <h1>form tag : 사용자가 정보를 입력/선택 할 수 있는 양식 만들기</h1>
+ <!-- 
+ 	get 방식 전송? 주소표시줄에 데이터가 표시됨 (open) ... pwd공개되는 문제 발생 
+ 	post 방식 전송? 주소표시줄에 데이터가 숨겨져서 전송된다 
+  -->
+  <!-- 																			파일 업로드 시 필요 -->
+ <!-- <form method="post" action="member.jsp?>username='홍길동'" name="frm" enctype="multupart/form-data"> 폼에 속성들의 순서는 상관없고 폼 태그 안에서 작성 -->
+ <form>
+ 	아이디 : <input type="text" name="userid" placeholder="id를 입력하세요." size="10" maxlength="5" /><br/>
+ 	비밀번호 : <input type="password" name="userpwd" placeholder="password를 입력하세요."><br/>
+ 	파일첨부 : <input type="file" name="filename"/><br/>
+ 	체크박스 : <input type="checkbox" name="hobby" value="등산"/> 등산
+ 			 <input type="checkbox" name="hobby" value="농구"/> 농구
+ 			 <input type="checkbox" name="hobby" value="야구" checked/> 야구<br/>
+ 	라디오버튼 : <input type="radio" name="gender" value="m" checked/> 남
+ 			  <input type="radio" name="gender" value="f"/> 여	<br/> 
+ 			  
+ 	여러줄의 텍스트 : <textarea name="content" rows="5" cols="50">컨텐츠 자리</textarea><br/>
+ 	목록 태그 : <select name="hobby2" size="3" multiple>
+ 				<option value="독서">독서</option>
+ 				<option value="영화" selected>영화</option>
+ 				<option value="뜨개질">뜨개질</option>
+ 				<option value="드로잉">드로잉</option>
+ 			  </select> <br/>
+ 			  
+ 	 목록 태그 : <select name="choice">
+ 	 				<optgroup label="front end">
+ 	 				<option value="html">html</option>
+ 	 				<option value="css">css</option>
+ 	 				<option value="javascript">javascript</option>
+ 	 				</optgroup>
+ 	 				
+ 	 				<optgroup label="back end">
+ 	 				<option value="jsp">jsp</option>
+ 	 				<option value="servlet">servlet</option>
+ 	 				</optgroup>
+ 	 		  </select>	<br/>
+ 	 		  
+ 	 버튼 : <input type="button" value="버튼"/> <!-- 기능 수행을 위해서는 다른 언어가 필요함 -->
+ 	 	   <input type="submit" value="보내기" formaction="member.jsp" formmethod="post" formtarget="_blank" 
+ 	 	   									 formtype="multipart/form=data"/> <!-- 파일 전송을 위한 액션?(버튼에 써도 되고, form에 써도 됨) -->
+ 	 	   									 <!-- form에 있는 jsp파일로 가서 실행됨 > member.jsp 파일로 입력값이 전송됨(버튼에 써도 되고, form에 써도 됨) -->
+ 	 	   <input type="reset" value="다시쓰기"/> <!-- form 안의 컴포넌트 초기화 -->
+ 	 		<button>버튼</button> <!-- submit 버튼과 같은 기능을 한다 -->
+ 	 		<input type="image" src="../img/bold01.gif"/> <!-- 버튼과 같은 기능을 수행한다(submit) -->
+ 	 
+ 	 <hr/>
+ 	 <!--  날짜 처리 : 이용자가 날짜 선택 -->
+ 	 date : <input type="date" name="date1"/>년월일<br/>
+ 	 datetime-local : <input type="datetime-local" name="date2"/>년월일 시분오전/오후<br/>
+ 	 month : <input type="month" name="date3"/>년월<br/>	
+ 	 week : <input type="week" name="date4"/>그 해의 몇 주째인지<br/>
+ 	 color : <input type="color" name="color"/>RGB 코드표<br/>
+ 	 number : <input type="number" name="number" min="-10" max="10" step="5"/>숫자만입력, 범위지정 가능<br/>
+ 	 range : <input type="range" name="range" min="1" maz="100" value="5"/>슬라이드바로 범위 지정<br/>
+ 	 
+ 	 
+ 	 
+ </form>
+</body>
+</html>

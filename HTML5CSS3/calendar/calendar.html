@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>old-fashion calendar</title>
+<link rel="stylesheet" href="css/style.css" type="text/css"/>
+<script>
+    var nowDate = new Date();
+    //마지막 날 구하기 
+    var lastDate = new Date(nowDate.getFullYear(), nowDate.getMonth()+1, 0);
+    var lastDay = new Date(lastDate).getDate();
+    //그 달의 1일 구하기
+    var startMth = new Date(nowDate.getFullYear(), nowDate.getMonth, 1); 
+    
+    function setDate(){
+        var getMonth = document.getElementById("showMonth");
+        getMonth.innerHTML = (nowDate.getMonth()+1) + '월'
+        
+        var weekDays = ['일', '월', '화', '수', '목', '금', '토'];
+        var inputWeek = "";
+
+        for(var i=0; i<weekDays.length; i++){
+            if(weekDays[i]==='일'){
+                inputWeek += "<li style=color:red>"+weekDays[i]+"</li>";
+            }else if(weekDays[i]==="토"){
+                inputWeek += "<li style=color:blue>"+weekDays[i]+"</li>";
+            }else{
+                inputWeek += "<li>"+weekDays[i]+"</li>";
+            } 
+        }
+        document.getElementById("weekName").innerHTML = inputWeek;
+
+        var inputDays = "";
+        
+        for(var i=1; i<=lastDay; i++){
+            var cnt = 0;
+            inputDays += "<li>"+i+"</li>";
+            
+        }
+        document.getElementById("days").innerHTML = inputDays;
+    }
+    
+</script>
+</head>
+<body onload="setDate()">
+    <div id="main">
+        <div id="top">
+            <span>2021년 신축년 (辛丑年)</span>
+        </div>
+        <div id="imgDiv">
+            <img src="img/cow.jpg"/>
+        </div>
+        
+        <div id="calendar">
+            <span id="showMonth"></span>
+            <div> <!-- 요일 출력 -->
+                <ul id="weekName">
+                </ul>
+            </div> 
+            <div> <!-- 날짜 출력 -->
+                <ul id="days"> 
+                </ul>    
+            </div>
+                
+        </div>
+        
+        
+        
+        
+    </div>
+</body>
+</html>

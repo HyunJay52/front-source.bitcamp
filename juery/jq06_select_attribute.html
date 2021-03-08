@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>select attribute 속성 선택자</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script>
+        $(function () {
+            //속성선택자 표기법
+            //a태그의 title이라는 속성이 있으면 선택하기
+            //           li에 색칠이 됨
+            $('a[title]').parent().css('background-color', 'pink');
+            //a태그의 href의 속성의 값('')이 일치하는 객체를 선택함
+            $("a[href='http://www.naver.com']").css('font-size', '1.5em');
+
+            //^= : 특정한 문자로 시작하는 객체를 선택함
+            $('a[href^="https"]').css('background-color', "yellow");
+            //$= : 특정문자로 끝나는 객체를 선택함
+            $('a[href$="com"]').parent().css('background-color', 'lightgreen');
+            //*= : 특정문자가 포함되는 객체를 선택함
+            $('a[href*="na"]').css('color', 'red');
+
+            $('a[class=best]').css('font-size','3em').css('padding', '10px');
+        })
+
+        function startScript() {
+            console.log("스크립트 함수 실행됨...");
+        }
+    </script>
+</head>
+
+<body>
+    <ul>
+        <li><a href="http://www.nate.com" class="test">네이트</a></li>
+        <li><a href="http://www.daum.net" class="best">다음</a></li>
+        <li><a href="http://www.naver.com" class="test">네이버</a></li>
+        <li><a href="http://www.jquery.com" class="best" title="제이쿼리 홈페이지로 이동합니다 !!!">제이쿼리</a></li>
+        <li><a href="https://www.spring.io" class="test">스프링프레임워크</a></li>
+        <li><a href="https://www.w3schools.com" class="best">w3schools</a></li>
+        <li><a href="mailto:goguma777@nate.com" class="test">메일보내기</a></li>
+        <li><a href="javascript:startScript()" class="best">자바스크립트 실행하기</a></li>
+        <!--자바스크립트 페이지 실행, 새 페이지가 아니고 현재 페이지에서 실행됨=뒤로 가기 없음-->
+    </ul>
+</body>
+
+</html>

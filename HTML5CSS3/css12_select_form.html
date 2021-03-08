@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>css12 select form</title>
+
+<style>
+	/*상태선택자*/
+	/* : focus >>> 커서가 컴포넌트에 들어오면 포커스가 들어왔따!*/
+	input:focus{
+		background-color:yellow;
+	}
+	/* : checked >>> 컴퍼넌트가 체크되면 */
+	input:checked{
+		width:50px;
+		height:50px;
+	}
+	/*disabled: 비활성화 시킨 상태라서 서버로 데이터를 보낼 수 없음. 그냥 보여주는 값  = 값도 없고, 수정도 불가능
+					> 데이터를 보내주기 위해서는 readonly:읽기전용 사용 = 값은 존재, 수정은 불가능, 커서 활성화는 됨*/
+	textarea:disabled{
+		color:red;
+		font-size:1.5em;
+	}
+	/*enabled: 활성화일때 스타일 적용*/
+	input:enabled{
+		/*readonly까지 적용됨*/
+		background-color:pink;
+		color:#fff;
+	}				
+</style>
+
+</head>
+<body>
+<form method="post" action="aaaa.jsp">
+	아이디 : <input type="text" name="userid" placeholder="id를 입력하세요." size="10" maxlength="5" value="goguma" readonly /><br/>
+ 																											<!-- 입력 비활성화 -->
+ 	비밀번호 : <input type="password" name="userpwd" placeholder="password를 입력하세요." disabled><br/>
+ 	파일첨부 : <input type="file" name="filename"/><br/>
+ 	체크박스 : <input type="checkbox" name="hobby" value="등산"/> 등산
+ 			 <input type="checkbox" name="hobby" value="농구"/> 농구
+ 			 <input type="checkbox" name="hobby" value="야구" checked/> 야구<br/>
+ 	라디오버튼 : <input type="radio" name="gender" value="m" checked/> 남
+ 			  <input type="radio" name="gender" value="f"/> 여	<br/> 
+ 			  
+ 	여러줄의 텍스트 : <textarea name="content" rows="5" cols="50" disabled>컨텐츠 자리</textarea><br/>
+ 															<!-- 없어지면 적용 안됨 -->
+ 	목록 태그 : <select name="hobby2" size="3" multiple>
+ 				<option value="독서">독서</option>
+ 				<option value="영화" selected>영화</option>
+ 				<option value="뜨개질">뜨개질</option>
+ 				<option value="드로잉">드로잉</option>
+ 			  </select> <br/>
+ 			  
+ 	 목록 태그 : <select name="choice">
+ 	 				<optgroup label="front end">
+ 	 				<option value="html">html</option>
+ 	 				<option value="css">css</option>
+ 	 				<option value="javascript">javascript</option>
+ 	 				</optgroup>
+ 	 				
+ 	 				<optgroup label="back end">
+ 	 				<option value="jsp">jsp</option>
+ 	 				<option value="servlet">servlet</option>
+ 	 				</optgroup>
+ 	 		  </select>	<br/>
+ 	 <input type="button" value="버튼"/>		  
+</form>
+</body>
+</html>

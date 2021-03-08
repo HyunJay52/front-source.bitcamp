@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>tag12_div</title>
+
+<style>
+	div{
+		width:200px;
+		height:200px;
+		border:1px solid gray;
+		/*background가 없으면 투명처리*/
+	}
+	
+	#div1{
+		background:green;
+		position:relative;
+		z-index:100;
+	}
+	/*
+		position: 좌표를 설정 할 수 있다. *** 중요!
+			> 좌표:left, right, top, bottom
+			> 속성값: static > 좌표설정 안됨 
+				    relative > 좌표설정 가능, 공간을 반환하지 않고, 처음 위치를 기준으로 이동한다.
+				    absolute > 좌표설정 가능, 공간을 반환하고, 다른 div가 원래 공간을 차지한다.
+		
+		후반에 생성된게 제일 위에 올라옴..
+		먼저 만든거 제일 위에 두고 싶으면? z-index 사용
+		z-index: 양수를 설정하면 값이 높을 수록 위에 표시된다.		    
+	*/
+	#div2{
+		position:absolute;	
+		left:100px;
+		top:100px;
+		z-index:5;
+	}
+	
+	#div2_1{
+		background:pink; width:80px; height:80px;
+		position:absolute;
+		left:150px; top:150px; 
+		/*div2 안에서 좌표이동을 한다. 만약에 div2에 position이 없다면 (=static), 전체 body 기준으로 좌표 설정*/
+	}
+	#div3{
+		background-color:#ddd;
+		position:relative;	
+		/*포지션 설정 전에는 div2 밑으로 나옴*/
+		top:50px;
+		/*div3이 위치만 내려가고 공간은 남아있음*/
+		/*div3 안에서 좌표이동을 한다. 만약에 div3에 position이 없다면 (=static), 전체 body 기준으로 좌표 설정*/
+		z-index:10;
+	}
+	#div3_1{
+		background-color:lightblue; width:100px; height:100px;
+		position:absolute;
+		left:30px; top:30px;
+	}
+	#div4{
+		position:absolute;
+		width:100px; height:200px; 
+		border:1px solid green; background-color:yellow;
+		right:10px; /*배너 같은 거 만들때*/
+	}
+</style>
+</head>
+
+<body>
+
+<div id="div1">
+	11
+</div>
+
+<div id="div2">
+<!-- 움직이려고 하는 div에 position: static(좌표지정 못함), relative(좌표ㅇ), absolute(좌표ㅇ) -->
+	22
+	<div id="div2_1">
+		22-1
+	</div>
+</div>
+
+<div id="div3">
+	33
+	<div id="div3_1">33-1</div>
+</div>
+
+<div id="div4">
+	44
+</div>
+
+</body>
+</html>

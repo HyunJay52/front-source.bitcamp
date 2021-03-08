@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>setTimeout</title>
+    
+    <script>
+        var n = 1;
+        
+        function countNum(){
+            document.getElementById("cnt").innerHTML = n;
+            n++;
+            console.log(n);
+            //1초에 1번 (자기자신의)함수 호출
+            var timer = setTimeout('countNum()',1000);
+            //본인 함수에서만 사용되고 불러지기때문에 멤버에 안 써도 된다.
+            if(n>=10){
+                //재귀호출함수가 종료됨.
+                clearTimeout(timer);
+            }
+        }
+    </script>
+    
+</head>
+<body onload="countNum();">
+    <h1>setTimeout(): 재귀호출 방식으로 일정한 시간간격으로 반복실행</h1>
+    <b id="cnt">1</b>
+</body>
+</html>

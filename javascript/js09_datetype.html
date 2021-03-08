@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        var dateTime = new Date() //현재시간, 날짜
+        var dateTime2 = new Date("2021.05.10"); //'2021/06/08', "2021-01-22" 문자열로 처리되어서 가능 
+        var dateTime3 = new Date(234545433324); //밀리초로 데이트 만듬 > 1970.01.01 0시 0분 0초 부터 출발 
+        
+        document.write("datetime = "+dateTime);
+        document.write("<br/>datetime2 = "+dateTime2);
+        document.write("<br/>datetime3 = "+dateTime3);
+        
+        /*
+            년: getFullYear(), 월: getMonth() > 1월=0/2월=1..., 일: getDate(),
+            시: getHours(),    분: getMinutes(),              초: getSeconds(),
+            요일: getDay() 일요일=0/월요일=1/...토요일=6
+        */
+        
+        var timeTxt = dateTime.getFullYear()+"년 ";
+        timeTxt += (dateTime.getMonth()+1)+"월 ";
+        timeTxt += dateTime.getDate()+"일 ";
+        timeTxt += dateTime.getHours()+": ";
+        timeTxt += dateTime.getMinutes()+": ";
+        timeTxt += dateTime.getSeconds()+"... ";
+        
+        document.write("<br/> ",timeTxt);
+        document.write("<br/> 요일 "+dateTime.getDay());
+        
+        //마지막 날 구하기
+        var date = new Date(dateTime.getFullYear(), dateTime.getMonth()+1, 0);
+        document.write("<br/> 마지막 날 > "+date.getDate());
+        
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

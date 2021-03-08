@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>movie poster</title>
+    <style>
+        body, #main, #poster{
+            margin:0px; padding:0px;
+        }
+        #main{
+            width: 880px; height: 114px;
+            border:1px solid gray;
+            margin: 0 auto;
+            align-items: center;
+        }
+        #poster{
+            width: 820px;
+            float:left;
+            overflow-x: scroll;
+            white-space: nowrap;
+            position: relative;
+        }
+        input[type=button]{
+            width: 30px; height: 114px;
+            float: left;
+        }
+    </style>
+
+    <script>
+        var x = 0;
+        var stepX = -5;
+
+        function imgMove(){
+            var movie = document.getElementById("poster");
+
+            x = x+stepX;
+
+        }
+    </script>
+    
+</head>
+<body onload="setInterval('imgMove()', 100)">
+    <div id="main">
+        <input type="button" value="◀︎"/>
+        
+            <div id="poster">
+                <script>
+                    for(var i=1; i<21; i++){
+                        document.write("<img src='img/movie"+i+".png'>");
+                    }
+                </script> 
+            </div>
+            
+        <div><input type="button" value="▶︎"/></div>
+    </div>
+</body>
+</html>

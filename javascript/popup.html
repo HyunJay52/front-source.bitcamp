@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>pop up</title>
+
+    <style>
+        img {
+            width: 350px;
+            height: 400px;
+        }
+    </style>
+    <script>
+        function closeBtn() {
+            //checkbox의 체크상태 확인 (checkbox의 값 가져옴)
+            if(document.getElementById("cookieCheck").checked){//checked:true<->false
+                //체크상태면 쿠키를 저장한다.
+                //  (설정해야하는 것)> 변수, 데이터(값), 저장위치, 소멸시간을 설정 
+                //날짜
+                var now = new Date();//현재 
+                now.setDate(now.getDate()+1);//1일 후...?
+                
+                //cookie 저장 > 1.변수  2.데이터   3.저장위치  4.소멸시간
+                document.cookie="event=2월;path=/;expires="+now+";";
+                
+                
+            }
+            window.close();// self.close();
+        }
+    </script>
+</head>
+
+<body>
+    <img src="../img/lionee.png" /><br />
+    <input type="checkbox" id="cookieCheck"/>
+    하루동안 열지 않기
+    <input type="button" id="closeBtn" value="close" onclick="closeBtn()" />
+
+</body></html>

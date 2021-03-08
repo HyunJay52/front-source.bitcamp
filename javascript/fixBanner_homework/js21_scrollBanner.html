@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>scrollBanner_teacher</title>
+
+    <style>
+        body {
+            margin: 0;
+        }
+        #header1, #header2{
+            height: 100px; width: 1000px;
+            margin: 0 auto; 
+        }
+        #header1{
+            background-color: #ddd;
+        }
+        #header2{
+            background-color: thistle;
+        }
+        #bar{
+            height:3px;
+            background-color: blue;
+            position:relative;
+            z-index: 100;
+        }
+        #content{
+            width:1000px;
+            margin: 0 auto;
+            position: relative;
+            background-color: burlywood;
+        }
+        img{
+            width: 1000px;
+        }
+        /*banner style*/
+        #left, #right{
+            position: absolute; /*content가 relative니까, 좌표기준이 됨. 만약 없으면 document가 기준이 됨*/
+            width: 100px;
+            background-color: cornflowerblue;
+        }
+        #left{
+            height :300px;
+            left: -100px; top: 0px;
+        }
+        #right{
+            height: 400px;
+            left: 1000px; top: 0px;
+        }
+        input{
+            width: 300px; height: 30px;
+        }
+    </style>
+
+    <script>
+        function event1(){
+            document.getElementById("header1").addEventListener('click', function(){
+                document.getElementById("header1").style.display = 'none';
+            });
+        }
+        //스크롤바의 위치를 구해서 베너와 구분선을 탑으로 위치 변경해주기 
+        function bannerMove(){
+            var scrollY = window.scrollY;//현재 스크롤바 위치 
+
+            //header의 높이 구하기
+            var top = 200;
+            if(document.getElementById("header1").style.display==="none"){
+                top = 100;
+            }
+
+            var bar = document.getElementById("bar").style;
+            var lbanner = document.getElementById("left").style;
+            var rbanner = document.getElementById("right").style;
+            if(scrollY > top){ //scrollbar가 top보다 많이 내려갔을때
+                bar.top = scrollY-top+"px";
+                lbanner.top = scrollY-top+"px";
+                rbanner.top = scrollY-top+"px";
+            }else{ //scrollbar가 아직 top의 위치를 넘어가지 않았을때
+                bar.top = "0px";
+                lbanner.top = "0px";
+                rbanner.top = "0px";
+            }
+        }
+
+        var idx=1;
+        function txtTyping() {
+            var str = "타이핑 문자처리 하기 연습 중...";
+            //[subString, slice] , substr 이용해서 문자 출력
+
+            var cutTxt = str.substr(0, idx++);
+                        //str.substring(0, idx++) or str.slice(0, idx++);
+            document.getElementById("txt").placeholder = cutTxt;
+                                            //value에 넣으면 중단 작업이 필요함, 아니면 계속 진행됨.. 문자입력 불가능
+
+            //문자열 자르기 초기화
+            if(idx >  str.length){
+                idx=1;
+            }
+        }
+    </script>
+</head>
+
+<body onload="event1(); setInterval('txtTyping()', 100);" onscroll="bannerMove();">
+    <div id="header1"></div>
+    <div id="header2">
+        <input type="text" id="txt"/>
+    </div>
+    <div id="bar"></div>
+    <div id="content">
+        <img src="img/img1.jpg" />
+        <img src="img/img2.jpg" />
+        <img src="img/img3.jpg" />
+        <img src="img/img4.jpg" />
+        <img src="img/img5.jpg" />
+        <img src="img/img1.jpg" />
+        <img src="img/img2.jpg" />
+        <!-- 배너 -->
+        <div id="left">banner a</div>
+        <div id="right">banner b</div>
+    </div>
+</body>
+
+</html>

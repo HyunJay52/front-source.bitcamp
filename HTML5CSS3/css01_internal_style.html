@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>css01_internal_style</title>
+<!--  
+	스타일 표시 방법 > > > 주로 헤드 태그에 모아둠
+	inline 방식: html 태그에 style 속성으로 표기 .. 하나만 적용할때
+	internal 방식: head 태그에 style 태그를 이용하여 표기하는 방법 .. 한 페이지에서 여러군데 적용할때
+	external 방식: css를 별도의 외무 파일로 만들어서 사용 .. 여러 페이지에서 여러군데 적용할떄
+ -->
+ <style>
+ 	/* 스타일 시트 주석문 */
+ 	/* 선택자: 태그 선택자, 아이디 선택자(같은 아이디는 1개만 있어야 한다, 여러개 tag에서 사용 할 수 없다), 클래스 선택자 */
+ 	
+ 	/* 선택자{속성:속성값; 속성:속성값; 속성:속성; , , , }*/
+ 	div{
+ 		color:blue; 
+ 		background-color:#ddd;
+ 	}
+ 	/* 아이디 선택자 : 하나의 태그에만 적용가능 */
+ 	#txt{
+ 		background-color:lightgreen;
+ 	}
+ 	/* 클래스 선택자 : 다른 태그들에서 사용가능 */
+ 	.c1{
+ 		font-size:20pt;
+ 	}
+ 	#d1{
+ 		/*text-decoration : 밑줄 underline, 윗줄 overline, 취소선 line-through, 선표시안함 null*/
+ 		text-decoration:underline;
+ 	}
+ 	
+ </style>
+</head>
+<body>
+<h1 style="color:lightred">스타일 시트</h1>
+
+<ul>
+	<li class="c1">inline 방식: html 태그에 style 속성으로 표기 .. 하나만 적용할때</li>
+	<li id="txt">internal 방식: head 태그에 style 태그를 이용하여 표기하는 방법 .. 한 페이지에서 여러군데 적용할때</li>
+	<li>external 방식: css를 별도의 외무 파일로 만들어서 사용 .. 여러 페이지에서 여러군데 적용할떄</li>
+</ul>
+<div class="c1">
+신규 확진자 수는 직전 이틀 연속 621명을 기록했다가 <span id="d1">지난 16일(457명) 이후 사흘 만에 600명 아래로 떨어졌다.</span> 
+600명대로 증가한 17일을 기준으로 하면 이틀만이다.
+그러나 대규모 사업장과 일상공간 곳곳에서 집단감염이 이어지고 있는 데다 
+대규모 인구 이동이 있었던 설 연휴(2.11∼14) 영향이 본격화되는 시점이어서 안심할 수 없는 상황이다.
+</div>
+
+<ul>
+	<li>inline 방식: html 태그에 style 속성으로 표기 .. 하나만 적용할때</li>
+	<li>internal 방식: head 태그에 style 태그를 이용하여 표기하는 방법 .. 한 페이지에서 여러군데 적용할때</li>
+	<li>external 방식: css를 별도의 외무 파일로 만들어서 사용 .. 여러 페이지에서 여러군데 적용할떄</li>
+</ul>
+<div>
+신규 확진자 수는 직전 <span>이틀 연속 621명을 기록했다가</span> 지난 16일(457명) 이후 사흘 만에 600명 아래로 떨어졌다. 
+600명대로 증가한 17일을 기준으로 하면 이틀만이다.
+그러나 대규모 사업장과 일상공간 곳곳에서 집단감염이 이어지고 있는 데다 
+대규모 인구 이동이 있었던 설 연휴(2.11∼14) 영향이 본격화되는 시점이어서 <span>안심할 수 없는 상황이다.</span>
+</div>
+</body>
+</html>

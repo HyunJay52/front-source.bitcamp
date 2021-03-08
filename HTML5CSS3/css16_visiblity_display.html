@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>visiblity display</title>
+
+<style>
+	img{
+		width:200px; height:200px;
+	}
+	/*객체를 보여주거나 숨김 (삭제 아님)
+		visibility: hidden(숨김), visible(보여줌) > 숨겨진 객체의 자리를 차지하고 있다. (숨겨진 객체 자리 공간이 남음)
+		display: none(숨김), block(보여줌) > 숨겨진 객체의 자리가 반환됨
+	*/
+	img:nth-of-type(2){
+		visibility:hidden;
+	}
+	img:nth-of-type(4){
+		display:none;
+	}
+	img:hover{
+		/*height:0px;*/
+		/*display:none;*/
+		visibility:hidden;
+	}
+</style>
+</head>
+<body>
+
+<img src="../img/clouds.jpg"/>
+<img src="../img/Lighthouse.jpg"/>
+<img src="../img/kakao.jpg"/>
+<img src="../img/lionee.png"/>
+<img src="../img/hobby3.gif"/>
+<img src="../img/zoom.gif"/>
+</body>
+</html>

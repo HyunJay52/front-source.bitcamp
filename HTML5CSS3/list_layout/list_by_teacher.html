@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>리스트 레이아웃 만들기</title>
+</head>
+<link rel="stylesheet" href="style.css" type="text/css"/>
+<style>
+    /*폭 614px*/
+    ul, li{
+        margin: 0; padding: 0;
+        list-style-type: none;
+    }
+    #mainDiv{
+        width: 592px; border:1px solid #ddd;
+        margin: 10px;
+        overflow: auto;
+        
+    }
+    #mainDiv>div:first-of-type{
+        width:395px;
+    }
+    #mainDiv>div, #mainDiv>div:first-of-type li, #mainDiv>div:last-of-type li{
+        float:left;
+    }
+    #mainDiv>div:first-of-type li{
+        width:158px; margin:8px; padding:0px 10px;
+        border:1px solid #ddd; background-color: ghostwhite;
+    }
+    /*Topic*/
+    #mainDiv>div:nth-last-of-type(2){
+        margin-right: 6px;
+    }
+    /*상식*/
+    #mainDiv>div:last-of-type li{
+        margin: 8px; width: 178px;
+        background-color: antiquewhite;
+        border: 1px solid #ddd;
+    }
+</style>
+<body>
+    <div id="mainDiv">
+        <div><!-- QnA -->
+            <ul>
+               <!--나중에 서버할때, 안에 텍스트 지우고 반복문으로 돌려주는 형식으로 짜야함-->
+                <li>
+                    <a href="#">
+                       <p>Q 헐리우드 영화에서 러시안인이 주로 악당으로...</p>
+                        <p>A 1냉전시대의 산물입니다. 러시아는 미국의 오랜 숙명의 라이벌이기도 하구요...</p>
+                    </a>
+                </li>
+                <li>
+                   <a href="#">
+                    <p>Q 헐리우드 영화에서 러시안인이 주로 악당으로...</p>
+                    <p>A 2냉전시대의 산물입니다. 러시아는 미국의 오랜 숙명의 라이벌이기도 하구요...</p>
+                    </a>
+                </li>
+                <li>
+                   <a href="#">
+                    <p>Q 헐리우드 영화에서 러시안인이 주로 악당으로...</p>
+                    <p>A 3냉전시대의 산물입니다. 러시아는 미국의 오랜 숙명의 라이벌이기도 하구요...</p>
+                    </a>
+                </li>
+                <li>
+                   <a href="#">
+                    <p>Q 헐리우드 영화에서 러시안인이 주로 악당으로...</p>
+                    <p>A 4냉전시대의 산물입니다. 러시아는 미국의 오랜 숙명의 라이벌이기도 하구요...</p>
+                    </a>
+                </li>
+            </ul>
+            
+        </div>
+        <!-- topic -->
+        <div>
+            <a href="#"><img src="tab2_1.png"/></a>
+        </div>
+        <!-- 상식 -->
+        <div>
+            <ul>
+                <li>
+                   <a href="#">
+                    <img src="tab2_2.png"/>
+                    견과류의 하루 적정 섭취량<br/>
+                    견과류
+                    </a>
+                </li>
+                <li>
+                   <a href="#">
+                    <img src="tab2_3.png"/>
+                    날벌레가 빛에 몰려드는 이유<br/>
+                    곤충
+                    </a>
+                </li>
+                <li>
+                   <a href="#">
+                    <img src="tab2_4.png"/>
+                    냉면의 유래와 역사<br/>
+                    음식
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

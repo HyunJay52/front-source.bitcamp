@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pop up DIV</title>
+    <style>
+        #content{
+            width:1000px; 
+            margin:0 auto;
+        }
+        img{
+            width:50%;
+        }
+
+        /*pop up 스타일*/
+        #popup{
+            width: 300px; border: 1px solid gray;
+            background-color: #fff;
+            position: absolute; /*좌표 설정을 위해서*/
+            opacity: 85%;
+        }
+        #popup>div{
+            float:left;
+        }
+        #pTitle{
+            width: 90%; height: 30px;
+            line-height: 30px;
+            background-color: goldenrod;
+        }
+        #pClose{
+            width: 10%; height: 30px;
+            line-height: 30px;
+            text-align: center;
+            background-color: #ddd;
+        }
+        #popup h1{
+            text-align: center;
+        }
+    </style>
+
+    <script>
+        var popup;
+        //팝업창 이동
+        function setXY(){
+            popup = document.getElementById("popup").style;
+            popup.left="300px";
+            popup.top="200px";
+        }
+        //닫기 버튼 기능
+        function setPopupClose(){
+            popup.display="none";
+        }
+        //팝업 이동
+        //mousepress 이벤트가 생긴 곳에서 x,y 좌표값이 필요함 > 움직이 전 좌표값과 계산
+        //팝업창의 좌표도 필요함
+        var eventX, eventY; //마우스 이벤트가 발생한 좌표
+        var popupX, popupY; //div에 대한 x,y 좌표
+        var moveX, moveY; //마우스 움직이는 것에 대한 좌표
+        var flag = false; //마우스 드래그 했을때 이벤트 구분을 위한 변수 (true=마우스 드래그 중)
+        function setMoveStart(){
+            //드래그 시작 !
+            flag = true;
+
+            //마우스를 누르면 이벤트가 발생한 곳의 x, y 좌표를 구한다.
+            eventX = event.clientX; //event: 마우스 클릭했을때, 좌표를 구해줌(현재 좌표)
+            eventY = event.clientY;
+            console.log("mouse: x > "+eventX+", y > "+eventY);
+            
+            //팝업창의 좌표 구하기 .. 300px로 나오니까 정수변환이 필요
+            popupX = parseInt(popup.left);
+            popupY = parseInt(popup.top);
+            console.log("div: x > "+popupX+", y > "+popupY);
+            
+            //마우스를 이동하면 이동한 곳의 좌표를 구한다, 이벤트 x, y 좌표를 구하기
+            //document에 마우스 무브 이벤트 등록하기 > 그래야지 다큐멘트 범위에서 이동하는 좌표를 구할 수 있는듯?
+            document.onmousemove = setMouseDrag;
+
+        }
+        function setMouseDrag(){
+            if(flag){
+                console.log("마우스 움직임")
+                moveX = event.clientX;
+                moveY = event.clientY;
+                //나중에 발생한 이벤트 좌표 - 이전에 발생한 이벤트 좌표 = 이동한 거리
+                var x = moveX - eventX;
+                var y = moveY - eventY;
+                //팝업창 이동 시키기 
+                //div의 좌표에 더해줌 > 이동한만큼 이동한다
+                popup.left = popupX+x+"px";
+                popup.top = popupY+y+"px";
+            }
+        }
+        //flag가 false로 바뀌면 마우스 이벤트에 해당하는 이벤트가 사라짐
+        function setFlag(){
+            flag = false;
+        }
+        document.onmouseup = setFlag;
+        
+        //쿠키 세팅.. 안됨
+        function setCookie(){
+            if(document.getElementById("checkC").checked){
+                var now = new Date();
+                now.setDate(now.getDate()+1);
+
+                document.cookie="event=3월;path=/;expires="+now+";";
+            }
+            popup.display="none";
+        }
+    </script>
+</head>
+
+<body onload="setXY()">
+    <div id="content">
+        <h1 style="text-align: center;">Div를 이용한 움직이는 팝업창 만들기</h1>
+        <iframe src="poster/js20_imgSlider.html" width="920px" height="134px" frameborder="0px"></iframe>
+        <img src="../img/clouds.jpg"/>
+        <img src="../img/kakao.jpg"/>
+        <img src="../img/lionee.png"/>
+        <img src="../img/img1.jpg"/>
+        <img src="../img/img2.jpg"/>
+    </div>
+
+    <!-- pop up div 만들기 -->
+    <div id="popup">
+        <div id="pTitle" onmousedown="setMoveStart();">event notice</div>
+        <div id="pClose" onclick="setPopupClose()">✕</div>
+        <div>
+            <h1>이벤트</h1>
+            <img src="../img/hobby3.gif"/>
+        </div>
+        <input type="checkbox" id="checkC" onclick="setCookie()"/>오늘 하루 안 보기
+    </div>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>select structure text > 구조선택자, 문자스타일</title>
+
+<style>
+	/* 
+		구조선택자: 
+			> nth-child(2n): 짝수번째, 홀수번째 적용 
+							홀수번째(2n+1), 짝수번째(2n)
+	 */
+	 
+	 #std>ul>li:nth-child(4n){
+		color:red;
+	 }
+	 #std>ul>li:nth-child(2n+1){
+	 	background-color:#ddd;
+	 }
+	 
+	 /*
+	 	:first-child > 
+	 	:last-child >
+	 */
+	 #std>ul>li:first-child{
+	 	font-size:1.5em;
+	 }
+	 #std>ul>li:last-child{
+	 	color:green;
+	 	font-size:1.2em;
+	 }
+	 #std>ul>li:nth-child(3){
+		background:lightgreen;
+		font-size:2em;
+	 }
+</style>
+</head>
+
+<!-- 
+	html 속성을 이용한 마우스 드레그 또는 복사 제한
+		1. oncontextmenu: 마우스 오른쪽 버튼 메뉴 제어 false (사용금지) > 키보드는 안 막힘
+		2. onselectstart: 마우스 드래그 시작 불가능 
+		3. ondragstart: 드래그 시작 불가능
+		4. ondragend: 드래그 종료 불가능
+		
+ -->
+<body oncontextmenu="return false" onselectstart="return false">
+<div id="std">
+	<ul>
+		<li>구조선택자 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~</li>
+		<li>구조선택자 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~</li>
+		<li>구조선택자 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~</li>
+		<li>구조선택자 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~</li>
+		<li>구조선택자 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~</li>
+		<li>구조선택자 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~</li>
+		<li>구조선택자 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~</li>
+		<li>구조선택자 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~</li>
+		<li>구조선택자 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~</li>
+		<li>구조선택자 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~</li>
+		<li>구조선택자 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~</li>	
+		<li>구조선택자 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~</li>
+		<li>구조선택자 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~</li>
+	</ul>
+</div>	
+
+<style>
+	/*구조선택자*/
+	/*
+		:first-of-type = first-child
+		:last-of-type = last-child
+		
+		:nth-of-type(2n) = 짝수
+		:nth-of-type(2n+1) = 홀수
+	*/
+	#std2 li:first-of-type{
+		color:green;
+	}
+	#std2 li:last-of-type{
+		background-color:lightblue;
+	}
+	
+	#std2 li:nth-of-type(2n){
+		color:orange;
+	}
+	#std2 li:nth-of-type(2n+1){
+		font-weight:900;
+	}
+</style>
+<div id="std2">
+	<ul>
+		<li>구조선택자 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~</li>
+		<li>구조선택자 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~</li>
+		<li>구조선택자 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~</li>
+		<li>구조선택자 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~</li>
+		<li>구조선택자 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~</li>
+		<li>구조선택자 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~</li>
+		<li>구조선택자 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~</li>
+		<li>구조선택자 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~</li>
+		<li>구조선택자 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~</li>
+		<li>구조선택자 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~</li>
+		<li>구조선택자 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~</li>	
+		<li>구조선택자 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~</li>
+		<li>구조선택자 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~</li>
+	</ul>
+</div>	
+
+<style>
+	/*
+		em(반응형 웹), px(그 외)
+		문자 스타일
+		::first-letter > 문자의 첫번째 글자에 대한 스타일(맨 앞에 한 글자 적용)
+		
+		::first-line > 문자열의 첫번째 행에 대한 스타일
+		
+		::selection > 문자열을 선택했을때, 선택영역에 대한 스타일
+		
+	*/
+	#txt::first-letter{
+		color:red;
+		font-size:30px;
+		font-weight:bold;
+	}
+	
+	#txt::first-line{
+		text-decoration:underline;
+		color:blue;
+	}
+	
+	#txt::selection{
+		background-color:#000;
+		color:yellow;
+	}
+</style>
+
+<div id="txt">
+현지 시간 23일, 뉴욕 증시에서 테슬라 주가가 장중 13% 떨어져 619달러까지 내려갔습니다.
+
+이후 680달러에서 등락을 거듭했습니다.
+
+테슬라가 지난 8일, 비트코인을 우리 돈으로 약 1조6천800억 원 상당을 구매했다고 공시했는데요.
+
+그러자 비트코인 랠리가 촉발돼 비트코인 가격이 5만 달러를 돌파했습니다.
+
+그런데 현지 시간 22일, 앨런 미 재무 장관이 "비트코인은 투기 자산"이라고 경고했습니다.
+
+여기에 일론 머스크 테슬라 CEO도 "비트코인 가격이 높다"고 언급해 찬물을 끼얹었습니다.
+
+그러자 비트코인 가격이 4만7천달러까지 밀려나면서 테슬라 주가도 함께 떨어졌습니다.
+
+</div>
+
+<style>
+	/*
+		부정(not) 선택자
+			:not(속성) > 선택자를 제외한 나머지의 스타일에 지정한다.
+			
+		링크 주소를 표시하는 스타일
+			::after > 텍스트(다음)를 표시 후 주소(http ~)를 표시한다.
+			::before > 주소표시 후 텍세트를 표시한다.
+	*/
+	#lnk>a:not([target=_blank]){
+		background-color:orange;
+	}
+	
+/*	#lnk>a::after{
+		content:'->' attr(href);
+	}
+*/	
+	#lnk>a::before{
+		content: attr(href)'->'; 
+	}
+</style>
+<div id="lnk">
+	<a href="http://www.daum.net">다음</a><br/>
+	<a href="http://www.naver.com">네이버</a><br/>
+	<a href="http://www.google.com">구글</a><br/>
+	<a href="http://www.nate.com" target="_blank">네이트</a><br/>
+	<a href="../indexTest.html">홈으로</a><br/>
+</div>
+</body>
+</html>

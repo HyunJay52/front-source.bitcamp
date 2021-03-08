@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>document 내장객체 종류</title>
+</head>
+<body bgColor="lightblue" link="orange" vlink="yellow" alink="cyan">
+    <a href="../indexTest.html">홈</a>
+    <a href="http://www.nate.com">네이트</a>
+    <a href="http://www.naver.com">네이버</a>
+    <a href="js13_setInterval.html">interval</a>
+    
+    <input type="button" value="click" id="clk"/>
+    
+    <script>
+        document.title="자바스크립트에서 제목변경";
+        document.write("<br/><h2>창 제목? "+document.title+"<h2>");
+        document.write("<br/>location > "+document.location); //프로토콜, url, port context(컨텍스트), path, filename
+        document.write("<br/>url > "+document.URL);
+        
+        document.write("<br/>last Modified > "+document.lastModified);
+        document.write("<br/>domain > "+document.domain);
+        
+        document.bgColor="lightgreen";
+        document.write("<br/>bgColor > "+document.bgColor);
+        
+        document.write("<br/>link > "+document.linkColor);
+        
+        document.getElementById("clk").onclick=function(){
+            alert("버튼을 클릭하였습니다.");
+            
+        } //document에서 이벤트 처리(실행) 가능.. 함수명이 없다.
+        
+        document.cookie="abcdef";
+        document.write("<br/>cookie > "+document.cookie);
+        //예시,,,,일주일동안 그만보기, 오늘 그만보기 세팅할때 사용, 장바구니 담기 (임시저장)
+        //웹페이지에다가 변수화 데이터로 데이터를 저장하고 현재 클라이언트에게 정보를 저장 가능
+        
+        //location > 페이지 자동이동 
+    </script>
+</body>
+</html>

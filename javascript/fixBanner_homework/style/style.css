@@ -1,0 +1,67 @@
+@charset "UTF-8";
+/* Reset
+body, h1, h2, h3, h4, ul, ol, dl, li, dt, dd, p{margin: 0;padding: 0;}
+or *{ margin:0 padding:0 } */
+
+/*클래스 파일*/
+.pd{
+    padding-top: 1px;
+}
+.st{
+    position: sticky;
+    top: 0;
+}
+
+*{
+    margin:0px; padding:0px;
+}
+hr{
+    background-color: blue;
+    height:2px;
+}
+
+#top, #img{
+    width:800px;
+    margin:0 auto;
+}
+
+#top div{
+    width:800px; height:100px;
+}
+
+#top div:first-of-type{
+    background-color: lightblue;
+}
+
+#top div:last-of-type{
+    background-color: pink;
+}
+
+/*메인 부분 시작*/
+#main{
+    width:940px; height: 2800px;
+    margin:0 auto;
+}
+#ban1{
+    width: 70px; height:300px;
+    background-color: yellow;
+    float:left;
+}
+#ban2{
+    width: 70px; height:400px;
+    background-color: orange;
+    display: inline-block;
+}
+#img{
+    width:800px; height:1800px;
+    position:relative;
+    background-color: green;
+    float:left;
+}
+img{
+    width:800px;
+}
+input{
+    width:350px;
+    font-size: 1.5em;
+}

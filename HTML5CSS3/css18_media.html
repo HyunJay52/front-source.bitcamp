@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>@media 쿼리: 반응형 스타일 지정하기</title>
+<!-- 장치에 맞게 픽셀정보 조정 -->
+															<!-- 0 ~ 10 -->
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<style>
+	ul, li{
+		margin:0px; padding:0px; list-style-type:none;
+	}
+	
+	li{
+		border:1px solid #ddd; margin:3px; padding: 3px; width:30%; float:left;
+	}
+	
+	/* 	반응형 스타일 지정 	
+		> 600, 800px 기준으로 잡고 3가지 스타일로 만들어보기 */
+	/*320px ~ 600px*/
+		/*디스플레이 종류 : all, screen, print, tv, projection*/
+	@media all and (min-width:320px) and (max-width:600px){
+		li{
+			background-color:pink;
+			color:#fff;
+		}
+	}
+	@media all and (min-width:601px) and (max-width:800px){
+		li{
+			background-color:lightblue;
+			color:gray;
+		}
+	}
+	@media all and (min-width:801px) {
+		li{
+			background-color:lightgreen;
+			color:black;
+		}
+	}
+</style>
+
+</head>
+<body>
+
+<ul>
+	<li>IO 오류: The Network Adapter could not establish the connection 업체코드 17002</li>
+	<li>SQLDeveloper에서 잘 접속 되었던 데이터베이스가 갑자기 에러 코드 17002번이 발생하면서 자꾸 접속이 되지 않는 것이었다.</li>
+	<li>윈도우os에서는 해당 코드 발생 시 오라클서비스와 리스너가 실행중에 있어야 네트워크 연결이 된다는 글을 보고 아차 싶어서 docker에서 oracle을 다시 구동하니 잘 동작되는 것을 확인할 수 있었다.</li>
+	<li>Beautify : 코드를 보기 좋게 자동 정리해 줍니다. 단축키는 Ctrl + Shift + L 입니다.</li>
+	<li>코딩을 한층 더 빠르게 해줍니다. 예를 들어서 <div></div> 라고 입력을 했으면 div 요소 사이에서 엔터를 입력하면 자동으로 </div>가 한줄 더 아래로 내려가고 그 사이에 알아서 들여쓰기 공간이 만들어 집니다. 브라켓 필수 플러그인 중 하나입니다.</li>
+	<li>nth-child는 부모 요소의 n번째 자식 요소를 의미합니다. 이번 예제에서는 p:nth-child(2)라고 입력했으니 p 태그의 부모 요소를 기준으로 두 번째 자식 요소에 해당하는 <p>ipsum</p>를 지칭합니다.</li>
+	<li>nth-of-type은 부모 요소의 자식 요소 중 type 조건을 만족하는 n번째 자식 요소를 의미합니다. p:nth-of-type(2)라고 입력했으니 부모 요소의 두 번째 <p></p> 자식 요소를 선택합니다</li>
+	<li>두 선택자의 차이점은 type 조건의 만족 여부입니다. nth-child의 경우 부모 요소의 모든 자식 중 순서만 맞다면 해당 요소를 선택합니다. 반면 nth-of-type의 경우 부모 요소의 모든 자식 요소 중 ①type 조건을 만족하고 ②순서를 만족하는 대상을 선택합니다.</li>
+</ul>
+
+</body>
+</html>

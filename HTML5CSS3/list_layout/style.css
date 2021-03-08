@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+/* 링크 스타일 : 마우스 올렸을때, 클릭했을때, 링크 사이트를 들어갔다가왔을때 */
+/* a: 가상 클래스 */
+a:link{
+	/* 링크 상태일때 */
+	text-decoration:none;
+	color:gray;	
+}
+
+a:visited{
+	/* 방문한 사이트 일 경우 */
+	text-decoration:none;
+	color:gray;
+}
+
+a:hover{
+	/* 마우스 오버 시 */
+	text-decoration:none; 
+	color:gray;
+}
+
+a:active{
+	/* 마우스를 누르고 있을 시*/
+	text-decoration:none;
+	color:gray;
+}
+
+/*
+a:link{
+	text-decoration:none;
+	color:gray;	
+}
+
+a:visited{
+	text-decoration:none;
+	color:gray;
+}
+
+a:hover{
+	text-decoration:none; 
+	font-weight:bold;
+	color:gray;
+}
+
+a:active{
+	text-decoration:underline;
+	color:pink;
+}
+*/

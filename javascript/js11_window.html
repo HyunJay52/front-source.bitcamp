@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>window</title>
+    
+    <script>
+        //내장객체는 date를 제외하고 new 필요없음,
+        //자바스크립트는 변수에 메소드 대입해서 사용 가능 ex. var a = function(){~~~};
+        
+        //window 내장 객체 > 구 팝업창 용도
+        var win; //변수생성 > close를 위해서 ... 현재 창이 아니니까 변수에 팝업창을 넣어줘야함.
+        function openPopup(){
+            //1.팝업창에 표시될 파일명  2.팝업창의 이름(지정하면 여러개 팝업 불가능)  3.창에 대한 옵션(width, height, left, top)
+            win = window.open("popup.html", "newLionee" , "width=500px, height=450px, left=150px, top=220"); //내장객체
+            
+            var left = screen.width/2 - win.outerWidth/2;
+            var top = screen.height/2 - win.outerHeight/2;
+            
+            win.moveTo(left, top);
+        }
+        //window.open("popup.html", "new pop", "width=500px, height=450px, left=300px");
+        //openPopup();
+        
+        function closePopup(){
+            //윈도우 종료
+            //win.close();
+            
+            window.close(", 'self',"); //윈도우가 있는 창을 닫음
+            //self.close();
+        }
+        
+        function winResize(){
+            //창(window)의 크기 조절  1.resizeTo( w, h ) 2.resizeBy(w,h);
+            //절대 사이즈로 설정하기 (현재 사이즈와 상관없이)
+                        //w , h
+            //win.resizeTo(300, 700);
+            
+            //상대 크기로 설정하기 (현재 크기를 기준으로 증감)
+            win.resizeBy(10, 10);
+        }
+        
+        function winMove(){
+            //window의 위치 설정
+            //절대 위치 설정 moveTo(x left, y top) +-가능
+            //win.moveTo(300, 300);
+            
+            //상대 위치 설정
+            win.moveBy(10,10);
+        }
+        
+        function winInfo(){
+            var winTag = "";
+            //window의 좌표 구하기
+            var x = window.screenX; //x좌표
+            var y = window.screenY; //y좌표
+            //window 실행 좌표 
+            winTag += "window.screenX= "+x+"<br/>";
+            winTag += "window.screenY= "+y+"<br/>";
+            
+            //window 폭과 높이(테두리 라인 메뉴 포함)
+            winTag += "window.outerWidth= "+window.outerWidth+"<br/>";
+            winTag += "window.outerHeight= "+window.outerHeight+"<br/>";
+            
+            //window 컨텐츠 영역의 폭과 높이
+            winTag += "window.innerWidth= "+window.innerWidth+"<br/>";
+            winTag += "window.innerHeight= "+window.innerHeight+"<br/>";
+            
+            document.getElementById("winInfo").innerHTML = winTag;
+            
+            
+        }
+    </script>
+    
+    <style>
+        body{
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body onload="winInfo()">
+<!--<body onload="openPop()" >  --><!-- 자동호출 -->
+    <h1>window 내장객체</h1>
+    <input type="button" value="팝업창 띄우기" onclick="openPopup()"/>
+    <input type="button" value="팝업창 닫기" onclick="closePopup()"/>
+    <input type="button" value="창 크기조절" onclick="winResize()"/>
+    <input type="button" value="창 위치 이동" onclick="winMove()"/>
+    
+    <div id="winInfo" style="border:1px solid gray;"></div>
+</body>
+</html>

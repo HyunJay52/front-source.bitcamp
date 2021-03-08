@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Start</title>
+    <style>
+        body {
+            font-size: 1.5em;
+        }
+
+        body>img {
+            width: 30%;
+        }
+    </style>
+    <Script language="javascript">
+        //한 줄 주석
+        /* 여러줄 주석
+            <js 객체>
+            document = body > 웹브라우저 컨텐츠가 나오는 영역 1)문자 출력 가능 .write 2) 
+            window = web browser조절 (window를 얼만큼 사이즈로 사용하는지)
+            screen = 전체 모니터 화면 (해상도를 알아낼 수 있다.)
+            history = 이전, 다음 페이지 이동
+            location = 주소창 > 페이지 이동 
+        */
+        //객체    모듈  > document=body(css): 웹브라우저의 컨텐츠가 나오는 영역, document라는 내장객체를 크롬이 가지고 있어서 그걸 사용하는 것
+        document.write("<b>자바스크립트</b>에서 표시한 문자<br/>");
+        document.write('자바스크립트에서는 따옴표를 유동적으로 쓸 수 있다.<br/>'); //같은 따옴표를 안과 밖에서 이중으로 사용하는거는 안되는듯?
+
+        var r = "1+2+3";
+        document.write("r=" + r);
+
+        var r2 = eval("1+2+3");
+        document.write("r2=" + r2);
+
+        var r3 = eval("<img src='../img/hobby3.jpg'/>");
+    </Script>
+    <script src="jscript.js"></script>
+</head>
+
+<body>
+    <form name="frm">
+        <input type="type" name="username" value="홍길동" />
+    </form>
+
+    <br /><img src="../img/zoom.gif" />
+
+    <script>
+        document.write("<img src='../img/hobby3.gif'/>")
+        document.write('<img src="../img/hobby3.gif"/>')
+        document.write("<h1>; 세미콜론을 생략 할 수 있다.</h1>")
+        //객체.name.input name.value - html 제어가능 (요즘은 dom방식>각각을 하나의 객체로 봄).
+        document.frm.username.value = "세종~~~~~~";
+    </script>
+</body></html>
+<script>
+    document.write("...html 다음에서 자바스크립트를 실행함....")
+</script>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>css shadow</title>
+
+<style>
+	div:first-child div:nth-of-type(2){
+		width:500px; height:100px; margin:50px; font-size:3em;
+		border:1px solid gray; text-align:center; line-height:100px; /*div 높이와 똑같이 설정하면 글자가 가운데로 감*/
+	}
+	
+	/* 박스에 그림자 설정 */
+	div:first-child{
+				/*그림자의 오른쪽 방향값(양수:오른쪽, 음수:왼쪽), 위/아래(그림자의 위치), 그림자의 투명도, 그림자 색상*/
+		box-shadow: 10px 5px 5px green;
+	}
+	
+	/* 글자에 그림자 설정 */
+	div:nth-of-type(2){
+		text-shadow: 5px 5px 5px red;
+	}
+	
+	/* 그라데이션 처리하는 방법 
+		https://www.colorzilla.com/gradient-editor/
+	*/
+	div:last-child{
+		width:100%; height:700px; font-size:2em; line-height:1.2;
+		/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#91ad22+0,f5ff91+25,7db9e8+46,7db9e8+100&1+0,0+100 */
+		background: -moz-linear-gradient(top,  rgba(145,173,34,1) 0%, rgba(245,255,145,0.75) 25%, rgba(125,185,232,0.54) 46%, rgba(125,185,232,0) 100%); /* FF3.6-15 */
+		background: -webkit-linear-gradient(top,  rgba(145,173,34,1) 0%,rgba(245,255,145,0.75) 25%,rgba(125,185,232,0.54) 46%,rgba(125,185,232,0) 100%); /* Chrome10-25,Safari5.1-6 */
+		background: linear-gradient(to bottom,  rgba(145,173,34,1) 0%,rgba(245,255,145,0.75) 25%,rgba(125,185,232,0.54) 46%,rgba(125,185,232,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#91ad22', endColorstr='#007db9e8',GradientType=0 ); /* IE6-9 */
+		
+	}
+</style>
+
+</head>
+<body>
+
+<div>
+	박스에 그림자 설정
+</div>
+
+<div>
+	글자에 그림자 설정
+</div>
+
+<div>
+	Step 1: Check whether the database is listening or not:
+	Step 2: RUN the CMD (Command Prompt) in Administrator mode.
+	Step 3: For checking the status of listener you have to run command “lsnrctl status”.
+	Step 4: If the Status of the listener is failed or error out do bellow steps.
+	Step 5: Run the command “lsnrctl start” to start the listener.
+	Step 6: Check for the error if still the error still purist then first stop the listener using command “lsnrctl stop” and then start the listener again using command “lsnrctl start”
+	After doing above steps you have to do one more setting.
+</div>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자바 스크립트 intro</title>
+</head>
+<body>
+<div id="view"></div>
+</body>
+<h1 id="txt">스타일 시트를 자바스크립에서 적용하기!</h1>
+<img src="../img/lionee.png" id="kko"/>
+</html>
+<script>
+    //  - 이미지 반복문으로 출력하기 -
+    //javascript = 변수 선언시, 별도의 데이타형을 지정하지 않는다!
+    //              처음으로 대입되는 데이터에 따라 형이 자동으로 설정된다. (유동적)
+    var imgTag="";
+    for(var i=1; i<=3; i++){ //wine3까지 출력됨
+        imgTag += "<img src='../img/wine" +i+ ".jpg'/>";
+    }                       //문자    +   변수  +   문자
+                                    //변수
+    document.getElementById("view").innerHTML = imgTag;
+    //개발자 도구에서 확인하면 스크립트가 바디 안으로 들어가져 있음.
+    
+    //자바스크립트에서 stylesheet 적용하기
+    document.getElementById("txt").style.color="#5ae";
+    
+    var obj = document.getElementById("txt").style;
+    // color, background-color, font-size(css) > backgroundColor(javascript)
+    obj.backgroundColor="lightyellow";
+    obj.border="solid 2px green";
+    
+    //자바스크립트에서 html 속성 다루기
+    var imgObj = document.getElementById("kko");
+    imgObj.src='../img/kakao.jpg';//html 속성(src) 적용 
+    imgObj.title= '마스크 낀 라이언';
+    imgObj.width= 300;
+    
+    var imgFilename = imgObj.src;
+    document.write("<br/>", imgFilename)
+                    //문자, 변수 <<< 이것도 가능
+    console.log(imgFilename); //콘솔에 찍음
+    alert(imgFilename); //팝업창으로 메세지 띄어줌(대화상자)
+    
+</script>

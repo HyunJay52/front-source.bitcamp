@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>선생님 이미지 팝업 드래그</title>
+    <style>
+        #mainDiv {
+            width: 900px;
+            margin: 0 auto;
+        }
+
+        #mainDiv>img {
+            width: 150px;
+            height: 150px;
+        }
+
+        #modal {
+            background-color: gray;
+            opacity: 0.5;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            display: none;
+        }
+
+        #bigShow {
+            width: 500px;
+            height: 540px;
+            border: 1px solid gray;
+            border-radius: 5px;
+            background-color: #ddd;
+            position: absolute;
+            display: none;
+            z-index: 100;
+        }
+
+        #title {
+            font-size: 2em;
+            text-align: center;
+            height: 40px;
+            background-color: #ccc;
+        }
+
+        #bigImage {
+            width: 500px;
+            height: 500px;
+        }
+    </style>
+    <script>
+        function setImage() {
+            var arrImg = ['img1.jpg', 'img2.jpg', 'img3.jpg', 'img4.jpg', 'img5.jpg'];
+            var tag = "";
+            for (var cnt = 1; cnt < 13; cnt++) {
+                for (var i = 0; i < arrImg.length; i++) {
+                    tag += "<img src='img/" + arrImg[i] + "' onclick='bigShowStart(this.src)'/>";
+                    //this > 이미지 태그 this.src > 이미지 파일 소스
+                }
+            }
+            document.getElementById("mainDiv").innerHTML = tag;
+        }
+        /*
+            var tag="";
+            for(var i=0; i<=13; i++){
+                tag+="<img src='../img/";
+                if(i<10){
+                    tag+="0";
+                }
+                tag+=i+".jpg/>"
+            }
+            document.getElementById("mainDiv").innerHTML = tag
+        */
+        function bigShowStart(filename) {
+            //모달창
+            var modal = document.getElementById("modal");
+            modal.style.display = "block";
+            //컨텐츠 높이(=스크롤바 높이, document.body.scrollHeight or document.documentElement.clightHeight)만큼 모달높이 지정
+            modal.style.height = document.body.scrollHeight + "px";
+            //modal.style.height=document.documentElement.clientHeight+"px";
+
+            //큰이미지
+            //마우스 클릭 좌표구하고 팝업창 이동시키기
+            var newX = event.clientX - 250; //팝업창의 폭 가운데에서 팝업이벤트 발생됨
+            var newY = event.clientY + window.scrollY; //스크롤바의 위치만큼 더해진 다음에 팝업창이 떠짐.. 
+            var bigShow = document.getElementById("bigShow");
+            bigShow.style.left = newX + "px";
+            bigShow.style.top = newY + "px";
+            bigShow.style.display = "block";
+
+            //파일명 찍어주기
+            document.getElementById("title").innerHTML = filename.substring(filename.lastIndexOf("/")+1);
+            //이미지 바꿔주기
+            document.getElementById("bigImage").src = filename;
+        }
+        //팝업창 닫기
+        function bigShowClose() {
+            document.getElementById("modal").style.display = "none";
+            document.getElementById("bigShow").style.display = "none";
+        }
+        //팝업창 이동 = = = = = = = = = = = = = = = = = = = = 밖깥부터 실행되고 나서 펑션 실행
+        var flag = false, bigX, bigY, mouseX, mouseY;
+        function moveStart() {//마우스 누른 상태
+            flag=true;
+            bigX = parseInt(document.getElementById("bigShow").style.left);
+            bigY = parseInt(document.getElementById("bigShow").style.top);
+
+            mouseX = event.clientX;
+            mouseY = event.clientY;
+
+            //
+            document.onmousemove = divMove;
+        }
+        //드래그 처리
+        function divMove() {
+            if(flag===true){
+                document.getElementById("bigShow").style.left = (event.clientX - mouseX)+bigX+"px";
+                document.getElementById("bigShow").style.top = (event.clientY - mouseY)+bigY+"px";
+            }
+        }
+        function divClose() {
+            flag=false;
+        }
+        document.onmouseup = divClose;
+    </script>
+</head>
+
+<body onload="setImage()">
+    <div id="mainDiv"></div>
+    <!--모달-->
+    <div id="modal"></div>
+    <div id="bigShow">
+        <div id="title" onmousedown="moveStart()">ddd</div>
+        <img src="img/img1.jpg" id="bigImage" onclick="bigShowClose()"/>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>js06 math</title>
+    <script>
+        function mathTest() {
+            var tag = "";
+            
+            var num = 123.5678;
+            tag+="<li>PI = "+Math.PI+"</li>"; //파이값
+            tag+="<li>pow = "+Math.pow(5,3)+"</li>"; //5의 3승
+            tag+="<li>round = "+Math.round(num)+"</li>" //반올림
+            tag+="<li>sqrt = "+Math.sqrt(10)+"</li>"; //루트
+            tag+="<li>abs = "+Math.abs(-20)+"</li>"; //절대값
+            tag+="<li>ceil = "+Math.ceil(num)+"</li>"; //올림
+            tag+="<li>floor = "+Math.floor(num)+"</li>"; //버림
+            tag+="<li>max = "+Math.max(58, 10, 55, 100, 101)+"</li>"; //제일 큰 값 구하기, 반복문 사용 안도 됨
+            tag+="<li>min = "+Math.min(11, 5,19, 1, 10)+"</li>"; //최소값 구하기
+            tag+="<li>random = "+Math.random()+"</li>"; //0~1사이 랜덤수, (정수화){(큰수 - 작은수+1)*난수} +작은수
+            document.getElementById("view").innerHTML = tag+"</ul>";
+        }
+    </script>
+</head>
+
+<body onload="mathTest();">
+    <div id="view"></div>
+</body>
+
+</html>

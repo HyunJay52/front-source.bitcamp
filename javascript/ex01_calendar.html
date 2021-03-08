@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>달력</title>
+    
+    <script>
+        function setDate(){
+            var nowDate = new Date();
+            var year = nowDate.getFullYear();
+            var month = nowDate.getMonth()+1;
+            nowDate = new Date(year, month-1, 1); //1일에 대한 요일 구하기
+            var week = nowDate.getDay(); //0>일, 1>월
+            var lastDay = new Date(year, month, 0).getDate();
+            console.log(lastDay);
+            //년월 출력
+            document.getElementById("title").innerHTML = year+" 년"+month+" 월";
+            
+            //요일 출력
+            var weekName = ['일','월','화','수','목','금','토'];
+            
+            var dayDate = "";
+            
+            for(var i=0; i<weekName.length; i++){
+                dayDate += "<li>"+weekName[i]+"</li>";
+            }
+            //공백문자 
+            for(var i=0; i<week; i++){
+                dayDate += "<li>&nbsp;</li>";
+            }
+            //날짜처리 
+            for(var d=1; d<=lastDay; d++){
+                dayDate += "<li>"+d+"</li>";
+            }
+            document.getElementById("day").innerHTML = dayDate;
+        }
+    </script>
+    
+    <style>
+        ul, li{
+            margin:0; padding:0; list-style-type: none;
+        }
+        #cal{
+            width:500px;
+        }
+        #cal>img{
+            width:100%; height:50%;
+        }
+        #title, #day>li{
+            text-align: center;
+        }
+        #day>li{
+            float:left;
+            width:14.2%;
+        }
+    </style>
+</head>
+<body onload="setDate()">
+    <div id="cal"></div>
+        <img src="../img/cow.jpg">
+        <h1 id="title">dd</h1>
+        <ul id="day">ddd</ul>
+</body>
+</html>

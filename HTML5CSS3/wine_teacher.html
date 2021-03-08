@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 가로로 먼저 블록을 나누고 세로로 블록 나눠주기 -->
+<style>
+	body{
+		background:rgb(240,150,90);
+	}
+	
+	#main{
+		width:609px;
+		background:#ffff;
+		margin:0px auto;
+		overflow:auto;
+	}
+	#leftDiv{
+		width:175px;
+		float:left; /*하나만 left하면 나머지 옆으로 정렬됨 왜냐면 블록이 2개 밖에 없어서*/
+	}
+	
+	#rightDiv{
+		width:434px;
+		float:left;
+		font-size:14px;
+		color:rgb(240,150,90);
+	}
+</style>
+</head>
+<body>
+	 <div id="main">
+	 <!-- 왼쪽 박스 -->
+	 	<div id="leftDiv">
+	 		<img src="../img/wine1.jpg"/>
+	 	</div>
+	 <!-- 오른쪽 박스 -->
+	 	<div id="rightDiv">
+	 	<img src="../img/wine2.jpg"/><img src="../img/wine3.jpg"/>
+	 	<img src="../img/wine_title.gif"/><br/>
+	 		분위기 있는 자리에서 빠질 수 없는 wine....<br/>
+		흔히들 와인이라 하면, 호텔이나, 고급레스토랑에 가야만 접할 수 있다<br/>
+		생각들 많이 하셨죠? 그건, 이제는 옛말말이랍니다..<br/>
+		이제는 더 이상은 낯설지 않은 와인..<br/>
+		와인을 맛볼 수 있는 레스토랑을 찾아 헤메실 필요가 없답니다..<br/>
+		이곳에 가면 새콤, 달콤, 쌉사름한 와인과 만나실 수 있어요..
+	 	</div>
+	 	
+	 </div>
+</body>
+</html>

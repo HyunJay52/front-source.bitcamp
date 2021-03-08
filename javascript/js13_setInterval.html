@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <style>
+        #view {
+            font-size: 5em;
+            text-align: center;
+        }
+    </style>
+
+    <script>
+        var n = 1;
+        
+        var timer;
+        //setInterval = 한번 호출하면 일정한 시간 간격으로 함수를 자동 호출한다.
+        //호출 시마다 1부터 1씩 증가 > 반복 실행하는 것처럼 실행
+        function countNumber() {
+            document.getElementById("view").innerHTML = n;
+            //10번까지 출력된 후, interval 중지
+            if(n>=10){
+                clearInterval(timer);
+            }
+            n++;
+            console.log('= = = bbbb',n);
+        }
+        
+        function startNum(){
+            //          호출함수명         밀리초
+            timer = setInterval("countNumber()", 500);
+            console.log('aaaaaaa');
+        }
+    </script>
+</head>
+
+<body onload="startNum()">
+<!-- body onload="setInterval('countNumber()', 100)" -->
+    <h1> 일정한 시간 간격으로 함수 호출 > setInterval()</h1>
+
+    <div id="view"></div>
+</body></html>
+
+
+<!-- 
+    setInterval: 일정한 시간 간격으로 함수를 호출
+    setTimeout: 재귀호출, 자신의 함수를 다시 호출
+
+-->

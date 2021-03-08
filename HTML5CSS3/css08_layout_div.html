@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Black+And+White+Picture&family=Do+Hyeon&family=Gugi&display=swap" rel="stylesheet">
+
+<title>css08_layout_div</title>
+
+<style>
+	
+	body, h1{
+		font-family:'Do Hyeon', 굴림체, 돋움체, 고딕체, 맑은고딕;
+		margin:0; /*0px일때 단위 생략 가능*/
+		padding:0px;
+	}
+	#headder>div, #section, #footer>div{
+		width:1200px;
+		margin:0 auto; /*좌우 간격은 자동으로 같은 비율로 바뀐다.*/
+	}
+	/*상단*/
+	#headder{
+		height:200px;
+		background-image:url(../img/clouds.jpg);
+		background-size:100%;
+	}
+	#headder h1{
+		font-size:60px;
+		text-align:center;
+		height:130px; 
+		line-height:130px;
+	}
+	#navi>div{
+		float:left;
+		height:70px;
+		line-height:70px;
+		width:25%;
+		text-align:center;
+	}
+	/*자손(>)은 바로 밑 한 개, 후손은 밑에 있는거 모두*/
+	#headder>div{
+		height:200px;
+		background-color:#ffff;
+	}
+	
+	#section{
+		background-color:lightblue;
+	}
+	#footer{
+		background-color:#ddd;
+	}
+	#footer>div{
+		height:100px;
+		background-color:pink;
+	}
+</style>
+</head>
+
+<body>
+<h1 style="text-align:center">DIV를 이용한 화면 레이아웃</h1>
+
+<div id="headder"> <!-- div는 설정이 없으면 무조건 한 줄을 다 차지함  -->
+	<div>
+		<h1>비트캠프</h1>
+		<div id="navi">
+			<div>비트캠프 소개</div> <!--  오버플로우(칸을 넘어서 출력되는 것), 정렬해주면서 해결하기 -->
+			<div>교육과정</div>
+			<div>오시는 길</div>
+			<div>Q&A</div>
+		</div>
+	</div>
+</div>
+
+<div id="section">
+	contents<br/>
+	<img src="../img/hobby3.gif"/>
+
+</div>
+
+<div id="footer">
+	<div>
+		bottom
+	</div>
+</div>
+
+
+</body>
+
+</html>

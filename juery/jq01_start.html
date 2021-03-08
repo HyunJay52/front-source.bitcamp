@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juery start!</title>
+
+    <!-- 
+        Juery는 javascript 라이브러리이다.
+        http://www.juery.com에서 다운로드 가능
+        
+        실행순서? html > css > javascript 실행 후, juery 실행
+                자바스크립트 이벤트는 juery 실행 후, 실행됨.
+    -->
+    <script src="lib/jquery-3.6.0.min.js"></script> <!--jquery 링크 걸어주기-->
+    <script>
+        alert("javascript 실행");
+        
+        //Juery 코드
+        //$(선택자).  이벤트종류(function) : ready()=바디 실행이 끝나면, juery ready 이벤트 발생
+        $(document).ready(
+            function () {
+                //juery 실행부, 함수 수식 배열 객체 등을 사용 할 수 있다.
+                //alert("juery 실행부...");
+                console.log('제이쿼리 ready 실행...')
+            }
+        );
+    </script>
+</head>
+<body> <!--onload="console.log('onload 실행')"...바디로딩 끝나고 온로드-->
+    <h1>html 문서 .....</h1>
+
+    <script></script>
+</body>
+</html>

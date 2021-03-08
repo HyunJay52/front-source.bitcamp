@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>선생님_스크린세이버</title>
+
+    <style>
+        body {
+            margin: 0;
+        }
+
+        #container {
+            width: 1000px;
+            margin: 0 auto;
+            background-color: #eee;
+        }
+
+        #content>img {
+            width: 100%;
+        }
+
+        #imgList>img {
+            width: 100px;
+            height: 100px;
+        }
+
+        /*화면보호기*/
+        #saverMsg,
+        #saverImage,
+        #wing {
+            display: none;
+        }
+        #saverMsg {
+            font-size: 2em;
+            color: yellow;
+            text-align: center;
+            position: absolute;
+            width: 100%;
+        }
+        #saverImage{
+            width: 100%;
+        }
+        #wing {
+            width: 300px;
+            height: 100px;
+            position: absolute;
+            top:0px; left: 0px;
+        }
+    </style>
+
+    <script>
+        //현재 컨텐츠에 이미지 세팅
+        function imageSet() {
+            var imgName = ['img1.jpg', 'img2.jpg', 'kakao.jpg', 'img4.jpg', 'img5.jpg', 'img6.jpg', 'lionee.png'];
+
+            var tag = "";
+
+            for (var i = 0; i < imgName.length; i++) {
+                tag += "<img src='../../img/" + imgName[i] + "'onclick='showScreenSaver(this.src)'/>";
+            }
+
+            document.getElementById("imgList").innerHTML = tag;
+        }
+        //화면보호기 이미지 클릭
+        var timer; //이미지 움직일 필요앖을때 세팅을 위한 변수..?
+        function showScreenSaver(selImg){
+            var wHeight = window.innerHeight;
+
+            console.log(selImg);
+            //1. 현재 컨텐츠 전체 숨기기
+            document.getElementById("container").style.display="none";
+            //숨겨둔 파일 보여주기
+            //2. (방법1) 이미지 키워주기
+            //  2-1. 문자열
+            document.getElementById("saverMsg").style.display="block";
+         /*   //  2-2. 이미지
+            var saverImg = document.getElementById("saverImage");
+            saverImg.style.display="block";
+            saverImg.src=selImg;
+            //  2-3. 현재 윈도우 높이를 구한다.
+            var wWidth = window.innerWidth;
+            var wHeight = window.innerHeight;
+            saverImg.style.width = wWidth+"px";
+            saverImg.style.height = wHeight+"px";   */
+            //3. (방법2) 화면보호기 이미지를 백그라운드로 설정하기
+            document.body.style.backgroundImage = "url("+selImg+")";
+            document.body.style.backgroundSize = "100% "+wHeight+"px";
+            //3. 날개 이미지
+            //  기준점을 먼저 정하기(x,y의 증감 파악) - setTimeout or setInterval
+            document.getElementById("wing").style.display="block";
+            timer = setInterval('screenSaverMove()', 100);
+        }
+        //날개 움직이기 > 화면크기에 맞춰서 움직여야함
+        //  화면크기            현재 위치       움직일 거리
+        var wWidth, wHeight, nowX=0, nowY=0, stepX=5, stepY=5;
+        function screenSaverMove(){
+            //윈도우 크기 구하기
+            wWidth = window.innerWidth;
+            wHeight = window.innerHeight;
+            //초기값이 있어야지 계산가능.. 예약어를 변수로 사용하면 실행안됨
+            nowX = nowX+stepX;
+            nowY = nowY+stepY;
+
+            var wing = document.getElementById("wing").style;
+            wing.left=nowX+"px";
+            wing.top=nowY+"px";
+            //윈도우 끝에서 방향 전환하기 (스크린의 높이-이미지의 높이 ,스크린의 폭-이미지의 폭)
+            if(wHeight-100-4<nowY) stepY = -5; //y 감소
+            if(wWidth-300-5<nowX) stepX = -5; //x 감소
+            if(nowY<=0) stepY=5; //y 증가
+            if(nowX<=0) stepX=5; //x 증가
+        }
+        //화면보호기 종료
+        function endScreenSaver(){
+            clearInterval(timer); //현재 위치에서 움직임 중지!
+            document.getElementById("container").style.display="block";
+            document.getElementById("saverMsg").style.display="none";
+          //document.getElementById("saverImage").style.display="none";
+            document.body.style.backgroundImage = ""; //배경이미지 지워주기
+            document.getElementById("wing").style.display="none";
+        }
+    </script>
+</head>
+
+<body onload="imageSet()" onkeyup="endScreenSaver()">
+    <div id="container">
+        <div>이미지를 클릭하시면 화면보호기로 이동합니다.</div>
+        <div id="imgList"></div>
+        <hr />
+        <div id="content">
+            <img src="../../img/hobby3.gif" />
+            <img src="../../img/hobby3.gif" />
+            <img src="../../img/hobby3.gif" />
+        </div>
+    </div>
+
+    <div id="saverMsg">아무키나 누르시면 화면보호기가 종료됩니다.</div>
+    <img src="../../img/img1.jpg" id="saverImage" />
+    <img src="../../img/flyingbird.gif" id="wing"/>
+</body>
+</html>

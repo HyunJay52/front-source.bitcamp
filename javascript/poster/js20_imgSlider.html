@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #post{
+            width:880px; height: 114px;
+            margin: 0px auto; 
+        }
+
+        #post>input[type=button]{
+            width:30px; height: 114px;
+        }
+        #post>div{
+            width:820px; height: 114px;
+            background-color: thistle;
+            overflow: hidden;
+        }
+        #post>input, #post>div{
+            float: left;
+        }
+        #imgLst{
+            width: 1640px;
+            position: relative; /*원래있던자리 없어짐 */
+        }
+    </style>
+
+    <script>
+        function setImg(){
+            var tag = ""; //tag를 만들기 위해서 문자열로 초기화
+            for(var i=1; i<=20; i++){
+                tag+="<img src='img/movie"+i+".png'/>";
+                //01~10,11 일때
+                //    tag+="<img src='img/movie";
+                //    if(i<10){
+                //       tag += "0"+i;
+                //    }else{
+                //        tag += i;
+                //    }
+                //    tag+=".png'/>";
+            }
+            document.getElementById("imgLst").innerHTML = tag;
+        }
+
+        //movie 리스트가 움직이는 메소드
+        //처음 좌표
+        var x=0;
+        var stepX= -5;
+        var timer;
+        function imgMove(){
+            var movie = document.getElementById("imgLst");
+            x = x + stepX; //-5씩 감소
+            movie.style.left = x+"px";
+            if(x<=-820){ //방향전환
+                stepX = 5;
+            }
+            if(x>=0){ //방향전환
+                stepX = -5;
+            }
+        }
+    </Script>
+</head>
+<body onload = "setImg(); timer=setInterval('imgMove()', 100)">
+    <div id="post">
+        <input type="button" value="🔙" onclick="stepX=-5"/>
+        <div onmouseover="clearInterval(timer);" onmouseleave="timer=setInterval('imgMove()', 100)"><div id="imgLst"></div></div>
+        <input type="button" value="🔜" onclick="stepX=5"/>
+    </div>
+</body>
+</html>
+
+<!-- 지금까지 배운 객체 screen, window, document, location, history 
+    history eg... 회원정보 입력 가입 실패시 비밀번호 빼고, 다시 입력한 정보를 세팅
+     > 다녀왔던 페이지로 보내줌 
+     go(), forward(), back()...
+-->

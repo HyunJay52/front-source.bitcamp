@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Tab Menu testing...</title>
+<!-- 탭을 라디오 버튼(id)으로 만들고 라디오버튼을 텍스트(for)로 덮어주기 > checked 되면 어떻게 되는지 기능 설정까지.. -->
+<style>
+    /* Reset */
+    body, h1, h2, h3, h4, ul, ol, dl, li, dt, dd, p{margin: 0;padding: 0;}
+    ul, li{
+        list-style-type:none;
+    }
+    #tabMenu{
+        position:relative;
+        border:1px solid #ddd;
+        width:620px; height:620px;
+        overflow:hidden;
+    }
+    /*메뉴*/
+    #menu{
+        overflow:auto;
+    }
+    #menu>li{
+        float:left; padding:0px 5px;
+        font-size:1.2em; line-height:1.4em;
+    }
+    /*make radio button invisible*/
+    #tabMenu>input[type=radio]{
+        display: none;
+    }
+    /*before hiding contents, set contents' location (a content = a div)*/
+    #tabMenu>div{
+        position:absolute;
+        display:none; /*컨텐츠 숨김*/
+        left:0px; top:50px;
+    }
+    /*show the content when the tab is cliked*/
+    #m1:checked ~ div:nth-of-type(1){
+        display: block;
+    }
+    #m2:checked ~ div:nth-of-type(2){
+        display: block;
+    }
+    #m3:checked ~ div:nth-of-type(3){
+        display: block;
+    }
+    #m4:checked ~ div:nth-of-type(4){
+        display: block;
+    }
+    #m5:checked ~ div:nth-of-type(5){
+        display:block;
+    }
+    #m6:checked ~ div:nth-of-type(6){
+        display: block;
+    }
+    #m7:checked ~ div:nth-of-type(7){
+        display: block;
+    }
+    #m8:checked ~ div:nth-of-type(8){
+        display: block;
+    }
+    #9:checked ~ div:nth-of-type(9){
+        display: block;
+    }
+    #m10:checked ~ div:nth-of-type(10){
+        display: block;
+    }
+    #m11:checked ~ div:nth-of-type(11){
+        display: block;
+    }
+    /*클릭 시 글자색 바꾸기*/
+    #m1:checked ~ ul>li:nth-of-type(1){
+        background-color:red;
+    }
+</style>
+</head>
+<body>
+<h1> - Tab Menu -</h1>
+<div id="tabMenu">
+    <!-- radio button -->
+    <input type="radio" name="menu" id="m1" checked/> 
+    <input type="radio" name="menu" id="m2"/> 
+    <input type="radio" name="menu" id="m3"/> 
+    <input type="radio" name="menu" id="m4"/> 
+    <input type="radio" name="menu" id="m5"/> 
+    <input type="radio" name="menu" id="m6"/> 
+    <input type="radio" name="menu" id="m7"/> 
+    <input type="radio" name="menu" id="m8"/> 
+    <input type="radio" name="menu" id="m9"/> 
+    <input type="radio" name="menu" id="m10"/> 
+    <input type="radio" name="menu" id="m11"/>
+    <!-- 라벨 -->
+    <ul id="menu">
+        <li><label for="m1">블로그</label></li>
+        <li><label for="m2">카페</label></li>
+        <li><label for="m3">팁</label></li>
+        <li><label for="m4">지식공간</label></li>
+        <li><label for="m5">영화</label></li>
+        <li><label for="m6">뮤직</label></li>
+        <li><label for="m7">웹툰</label></li>
+        <li><label for="m8">스토리볼</label></li>
+        <li><label for="m9">브런치</label></li>
+        <li><label for="m10">게임</label></li>
+        <li><label for="m11">책</label></li>
+    </ul>
+    
+    <!-- image -->
+    <div><img src="tab1.png"/></div>
+    <div><img src="tab2.png"/></div>
+    <div><img src="tab1.png"/></div>
+    <div><img src="tab4.png"/></div>
+    <div><img src="tab5.png"/></div>
+    <div><img src="tab6.png"/></div>
+    <div><img src="tab7.png"/></div>
+    <div><img src="tab8.png"/></div>
+    <div><img src="tab9.png"/></div>
+    <div><img src="tab10.png"/></div>
+    <div><img src="tab11.png"/></div>
+</div>
+</body>
+</html>

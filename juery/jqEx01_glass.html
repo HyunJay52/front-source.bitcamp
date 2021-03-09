@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery로만 glass layout 만들기</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script>
+        //glass......만들기
+        $(function () {
+        /*    $('*').css('margin', '0px').css('padding', '0px');
+            $('body').css('width', '100%');
+            var title = $('body').append("<div><img src='../img/title_layer.gif'/></div>");
+            $('div:first').css("float","left");
+
+            $(title).append("<div id='pink'></div>");
+            $(title).append("<div id='blue'></div>");
+            $('#pink').css("height","40px").css("background-color","rgb(238, 135, 152)");
+            $('#blue').css('height','22px').css("background-color","rgb(84, 174, 200)");
+
+            $(title).append("<img src='../img/glass1.gif'/>");
+            $(title).append("<img src='../img/glass2.gif'/>");
+            $(title).append("<img src='../img/glass3.gif'/>");
+
+            $('img:first').nextAll().css('position', 'absolute');   */
+
+            /// 선생님 버전
+            $('body').css("margin", "0px");
+            $('body').append("<div></div>"); //파란색
+            $('body').append("<div></div>"); //분홍색
+
+            $("div:first").css("height", "40px").css("background-color", "rgb(238, 135, 152)");
+            $("div:eq(1)").css("height", "22px").css("background-color", "rgb(84, 174, 200)");
+
+            var imgName = ['title_layer', 'glass1', 'glass2', 'glass3'];
+
+            imgName.map(function(a, b){ //a:배열 값
+                $('body').append("<img src='../img/"+a+".gif'/>");
+            });
+
+            $("img").css("position", "absolute");
+            $("img:first").css("top", "0px");
+            $("img:eq(1)").css("left","300px");
+            $("img:eq(3)").css("left","500px").css("top", "100px");
+            $("img:eq(2)").css("left", "400px").css("top", "150pxau");
+
+        });
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

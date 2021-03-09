@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hover event 처리</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <style>
+        .lb {
+            background-color: lightblue;
+        }
+
+        .pk {
+            background-color: pink;
+        }
+    </style>
+    <script>
+        $(function () {
+            //마우스 오버가 될 때, 배경색 변경 > 마우스 아웃 일 때, 배경색 분홍색
+            var cnt = 0;
+            $('h1').hover(function () {
+                cnt++;
+                //마우스 오버일 경우 실행
+                $(this).addClass('lb');
+                $(this).removeClass('pk');
+
+                //이벤트가 5번 발생하면 더 이상 이벤트가 발생하지 않도록 이벤트를 해제 $(선택자).off();
+                if (cnt >= 5) {
+                    //$('h1').off();
+                    $(this).off(); //방금 이벤트가 생긴 객체의 이벤트를 off
+                }
+            }, function () {
+                //마우스 아웃일 경우 실행
+                $(this).addClass('pk');
+                $(this).removeClass('lb');
+            });
+
+            //one(): 한 번만 발생하는 이벤트
+            $("h2").one('click', function () {
+                $(this).addClass('pk');
+                console.log('이벤트 발생!');
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <h1>hover 이벤트 처리1</h1>
+    <h1>hover 이벤트 처리2</h1>
+    <h1>hover 이벤트 처리3</h1>
+    <h1>hover 이벤트 처리4</h1>
+    <h1>hover 이벤트 처리5</h1>
+    <h1>hover 이벤트 처리6</h1>
+    <h1>hover 이벤트 처리7</h1>
+
+    <h2>one event test....1</h2>
+    <h2>one event test....2</h2>
+    <h2>one event test....3</h2>
+    <h2>one event test....4</h2>
+</body>
+
+</html>

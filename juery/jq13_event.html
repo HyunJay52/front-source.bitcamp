@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery 이벤트</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script>
+        $(function () {
+            //이벤트 종류: onload, onmouseover, onmouseout, onmouseenter, onmouseleave,
+            //           onkeyup, onkeydown, onkeypress, onclick, onscroll, onfocus,
+            //            onblur, onsumbit, onreset, ondbclick, onchange, onresize, ...
+
+            //이벤트 처리 방법 (1) . . . . . . .
+        /*    $('h1').click(function(){
+                //이벤트 발생 시, 실행 할 명령어...
+                // this: 이벤트가 발생한 해당 객체
+                $(this).css("background-color", "orange");
+
+                $(this).html( $(this).text() +"?" );
+            }); */
+
+            //이벤트 처리 방법 (2) . . . . . . .
+            $('h2').on('click', function(){
+                $(this).css("color", "red");
+            });
+
+            //이벤트 처리 방법 (3) . . . . . . .jason data 변수:값
+            $('h1').on({
+                mouseenter:function(){
+                    //마우스 오버일 경우 실행
+                    $(this).css("background-color", "pink");
+                }
+                ,mouseleave:function(){
+                    //마우스 아웃일 경우 실행
+                    $(this).css("background-color", "#ddd");
+                }
+                ,click: function(){
+                    $(this).css("color", "green");
+                }
+            });
+
+            //이벤트 처리 방법 (4) . . . . . . .
+            //  이벤트는 다르지만 실행문이 같을 경우를 처리하는 방법, click, focus
+            $('input').on("click focus",function(){
+                $(this).val("event 발생함!");
+            });
+
+        });
+    </script>
+</head> 
+
+<body>
+    <h1>제이쿼리에서 이벤트 처리하기</h1>
+    <h1>제이쿼리에서 이벤트 처리하기</h1>
+    <h1>제이쿼리에서 이벤트 처리하기</h1>
+    <h1>제이쿼리에서 이벤트 처리하기</h1>
+    <h1>제이쿼리에서 이벤트 처리하기</h1>
+
+    <h2>제이쿼리에서 이벤트 처리하기 2</h2>
+    <h2>제이쿼리에서 이벤트 처리하기 2</h2>
+    <h2>제이쿼리에서 이벤트 처리하기 2</h2>
+    <h2>제이쿼리에서 이벤트 처리하기 2</h2>
+    <h2>제이쿼리에서 이벤트 처리하기 2</h2>
+
+    <!--ul#name>li{num$}*5-->
+    <ul id="name">
+        <li>num1</li>
+        <li>num2</li>
+        <li>num3</li>
+        <li>num4</li>
+        <li>num5</li>
+    </ul>
+    <input type="button" value="123456" />
+    <input type="button" value="ABCDEF" />
+    <input type="button" value="가나다라마바" />
+
+</body>
+
+</html>

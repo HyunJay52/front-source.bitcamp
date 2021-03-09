@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>number handler</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script>
+        $(function () {
+            //스타일 시트 설정
+            $('div').eq(0).css('border', '2px solid lightblue');
+            $('div:gt(0)').css('border', '2px solid red').css('background-color', '#ddd')
+                .css('width', '300px').css('height', '300px').css('margin', '50px').css('padding', '20px');
+            $('div:last').css('position', 'absolute').css('background-color', 'pink')
+                            .css('right', '100px').css('bottom', '100px');
+
+            //html(), text(), append()
+            //$('div:first').html('<h1>aaaAAAaaaAAA</h1>'); 원래있던거 없어지고 aaa로 덮어짐
+            //$('div:first').append('<h1>bbbBBBbbbBBB</h1>'); //기존의 내용 끝에 추가됨
+            //$('div:first').append('<h1>cccCCCcccCCC</h1>');
+
+            //수치조작함수
+            //width(), height() > 객체의 폭과 높이를 구한다 > margin, padding, border를 제외한 폭과 높이를 구한다.
+            var w = $('div:first').width();
+            var h = $('div:first').height();
+
+            $('div:first').append('<br/>width= ' + w + ", height= " + h);
+            $('div').eq(1).append('<br/> 2nd div width > ' + $('div').eq(1).width() +
+                "<br/> 2nd div height > " + $('div').eq(1).height())
+
+            //innerwidht(), innerHeight() > padding을 포함한 폭과 높이를 구함 
+            var innerW = $('div:eq(1)').innerWidth();
+            var innerH = $('div:eq(1)').innerHeight();
+            $('div:eq(1)').append('<div> innerWidth > ' + innerW + "</div>");
+            $('div:eq(1)').append("<div> innerHeight > " + innerH + "</div>");
+
+            //outerWidth(), outerHeight() > padding, border를 포함해서 폭과 높이를 구한다.
+            var outerW = $('div:last').outerWidth();
+            var outerH = $('div:last').outerHeight();
+            $('div:last').append('outerWidth > > > ' + outerW + "</br> outerHeight > > > " + outerH);
+
+            //postion() > 객체의 X(css.left), Y(css.top) 좌표 위치를 margin을 포함해서 구한다
+            var pLeft = $('div:last').position().left;
+            var pTop = $('div:last').position().top;
+            console.log(pLeft,', ',pTop);
+            //(추가 할 태그).appendTo(선택자) : 태그를 추가, 추가 할 내용이 html tag 형식으로 묶여있어야 한다!
+            var txt = "<div>left - - - "+pLeft+"<br/> top - - - "+pTop+"</div>";
+            $(txt).appendTo('div:last');
+            //offset() > 객체의 x(left), y(top) 좌표를 구한다. 단, margin, border, padding을 제외해서 구한다!
+            var oLeft = $('div:last').offset().left;
+            var oTop = $('div:last').offset().top;
+            $("<div>offset left > "+oLeft+"<br/> offset top > "+oTop+"</div>").appendTo('div:last');
+
+            //scrollTop(), scrollLeft() : 스크롤바의 오른쪽, 아래쪽의 이동위치를 구한다.
+            var sTop = $(window).scrollTop();
+            $("div:first").append("<br/>scrollTop > "+sTop);
+        });
+    </script>
+</head>
+
+<body>
+    <div>수치 조작 메소드</div>
+    <div>
+        <h2>123456</h2>
+    </div>
+    <div></div>
+</body>
+
+</html>

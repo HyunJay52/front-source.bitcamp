@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Document</title>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+    <style> 
+        
+        .label{
+            width: 120px; height: 140px;
+            position: absolute;
+            top:-150px; left:35px;
+            opacity: 0.8;
+        }
+
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+        body {
+            height: 100%; background-image: url(img/noise.png);
+        }
+
+        /*이미지 스타일*/
+        #main {
+            width: 1000px; margin:0 auto;
+        }
+        #main>img:first-of-type{
+            position: absolute;
+            z-index: -10;
+        }
+        #main>img:last-of-type{
+            width: 1000px; height: 700px;
+        }
+       
+        ul{
+            width:750px; height: 150px;
+            margin:0 auto;
+        }
+        li{
+            width:187.5px; height:150px;
+            margin: 0 auto;
+            position: relative; top:10px;
+            line-height: 150px;
+            list-style-type: none; text-align: center;
+            font-size: 1.5em; color: purple; text-shadow: 2px 2px 2px gray;
+            float: left;
+        }
+
+
+    </style>
+
+    <script>
+        $(function () {
+            
+            var list = "<ul><li>MENU</li><li>ABOUT</li><li>WORK</li><li>CONTACT</li></ul>";
+            var imgName = ['bg1.jpg', list, 'img3.jpg'];
+
+            imgName.map(function (a, b) {
+                if(b===1){
+                    $('#main').append(a);
+                }else{
+                    $('#main').append("<img src='img/" + a + "'/>");
+                }
+            });
+
+            $('li').append("<img src='img/label.png' class='label'/>");
+            
+            var timer = "";
+            $('li').on({
+                mouseenter: function(){
+                    $(this).attr("id", "event1")
+                    $(this).children('img').css('top','-10px').css('transition-duration','1s');
+                    //timer = setInterval('imgDown()', 300);
+                }, 
+                mouseleave: function(){
+                    //$(this).removeAttr("id");
+                    $(this).children('img').css('top','-150px').css('transition-duration','1s');
+                    clearInterval(timer);
+                }
+            });
+
+        });
+
+        var cnt=0;
+        function imgDown() {
+            cnt++;
+            console.log('----',document.getElementsByClassName("label")[0].style.top)
+            var label = document.getElementsByClassName("label")[0].style;
+            var down = parseInt(document.getElementsByClassName("label")[0].style.top);
+            label.top = down + cnt +"px";
+            if(down===0){
+                cnt --;
+                label.top = down + cnt + 'px';
+            }
+        };
+    </script>
+</head>
+<body>
+    <div id="main"></div>
+</body>
+
+</html>

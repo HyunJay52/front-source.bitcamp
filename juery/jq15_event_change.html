@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>select button 이벤트</title>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+
+    <style>
+        /* article{
+            /* font-size: 2em; */
+            /* font-size: 1cm; */
+            /* font-size: 1in; */
+            /* font-size: 5mm; */
+            /* font-size: 10pt; 
+        } */
+    </style>
+    <script>
+        $(function () {
+            //컬럼명 설정
+            var cCode = ['red', 'rgb(249, 234, 106)', '#0f0', 'pink', 'orange', '#fff', '#000', '#ddd', '#00f'];
+            var cName = ['빨강', '노랑', 'green', '분홍', 'orange', '흰색', 'black', 'light gray', '파랑'];
+
+            cCode.map(function (val, idx) {
+                var tag = "<option value='" + val + "'>" + cName[idx] + "</option>";
+                $('#colorName').append(tag);
+            });
+            //이벤트 1. 색상변경
+            $("#colorName").change(function(){ 
+                            //or .on('change', function(){})
+                $("article").css($("#choiceColor").val(), $("#colorName").val());
+                console.log($("#choiceColor").val())
+            });
+
+            //이벤트 2. 글자가 점점 크거나 작아지는 처리 (1px씩..)
+            //  이벤트를 버튼 수대로 하지 않고 같은 이벤트니까 이벤트 발생 객체에서 구분해주기
+            $('input').on('click', function(){
+                console.log($('article').css('font-size'));
+
+                //버튼들 중에서 인덱스를 구해서 선택된 버튼 알아내기
+                var idx = $('#menu>input').index(this);
+                console.log(idx);
+                
+                //현재 글자 크기를 구한다
+                var size = parseInt($('article').css('font-size'));
+                if(idx===0){
+                    size--;
+                }
+                else if(idx===1){
+                    size = 16;
+                }
+                else if(idx===2){
+                    size++;
+                }
+                //다 if로 해도 됨
+                $('article').css('font-size', size+"px");
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div id="menu">
+        <select id="choiceColor">
+            <option value='background'>배경색</option>
+            <option value='color'>글자색</option>
+        </select>
+        <select id="colorName"></select>
+        <input type="button" value="-" />
+        <input type="button" value="0" />
+        <input type="button" value="+" />
+        <article>
+            한국토지주택공사(LH) 직원들의 땅투기 의혹이 일파만파 번지는 가운데, 내부 직원으로 추정되는 이들이 연일 익명 커뮤니티를 통해 현 상황을 조롱하는 모습을 보여 누리꾼들의 공분을 사고 있다.
+            직장인 익명 커뮤니티 애플리케이션 `블라인드`에는 지난 9일 `내부에서는 신경도 안씀`이라는 제목으로 LH 직원이 쓴 것으로 추정되는 글이 올라왔다.
+            작성자는 "어차피 한 두 달만 지나면 사람들 기억에서 잊혀져서 물 흐르듯 지나갈 것이라고 다들 생각하는 중"이라며 "나도 마찬가지"라고 적었다.
+            이어 "털어봐야 차명으로 다 해놨는데 어떻게 찾을 거냐"면서 투기의혹에 대한 조사 자체를 비웃기도 했다.
+            그는 특히 "니들이 아무리 열폭(열등감 폭발) 해도 난 열심히 차명 투기하면서 정년까지 편하게 다닐 것"이라며 "이게 우리 회사만의 혜택이자 복지"라고 덧붙여 보는 이들의 눈을 의심케 했다.
+            마지막으로 그는 "(아니)꼬우면 니들도 우리 회사로 이직하든가"라면서 끝까지 LH에 대한 비판 여론을 비웃었다.
+            해당 글에 앞선 지난 8일에는 이번 의혹을 항의하는 시민단체의 시위 모습과 함께 "층수 높아서 안 들려. 개꿀~"이라는 게시물이 올라와 논란이 됐다.
+            LH는 투기 의혹이 불거진 점에 대해서는 사과했으나 이 같은 조롱글이 잇따르는데 대해서는 "LH 공식 입장과 무관하다"고 선을 그었다.
+            (사진=온라인 커뮤니티)
+        </article>
+    </div>
+</body>
+
+</html>

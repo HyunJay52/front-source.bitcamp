@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>effect</title>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+
+    <style>
+        .container{
+            width: 800px; margin: 0 auto;
+        }
+        .container>img{
+            width: 100%; border: 2px solid lightgreen;
+            margin: 10px;
+        }
+        </style>
+    <script>
+        $(function () {
+            //버튼 클릭시 발생하는 이벤트로 처리
+            $(".container>input").click(function () {
+                var idx = $(".container>input").index(this);
+                console.log("input idx > ", idx);
+
+                if(idx===0){
+                    // hide(): 객체를 숨김 > 폭과 높이가 줄어듬 .. border까지 사라짐
+                    $("img:first").hide('slow'); //hide(사라지는 시간 option): 'slow', 'fast', 'normal', '밀리초'
+                }
+                if(idx===1){
+                    // show(): 객체를 보여줌, option:'slow', 'fast', 'normal', '밀리초' > 폭과 높이가 줄어듬
+                    $("img:first").show(2000); 
+                }
+                if(idx===2){
+                    // toggle(): 숨기기-보여주기 기능 > 폭과 높이가 줄어듬
+                    $("img:first").toggle(2000);
+                }
+                if(idx===3){
+                    // fadeOut(): 점점 흐리게
+                                        //(속도, 콜백함수: 기능 구현 후, 마지막에 실행되는 함수)
+                    // $("img:first").fadeOut(3000, function(){
+                    //     //alert("점점 흐리게. . . ");
+                    // });
+                    $("img:first").hide(3000).fadeOut(2000);
+                }else if(idx===4){
+                    // fadeIn(): 점점 진하게
+                    $("img:first").show(3000).fadeIn(2000);
+                }else if(idx===5){
+                    // fadeToggle: 점점 흐리게, 점점 진하게 기능 2개
+                    $("img").first().fadeToggle(2000);
+                }else if(idx===6){
+                    //slideUp():
+                    $('img').first().slideUp(2000);
+                }else if(idx===7){
+                    $('img:first').slideDown(2000);
+                }else if(idx===8){
+                    // slideToggle(): 
+                    $("img").eq(0).slideToggle("slow");
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <input type="button" value="hide() 숨기기">
+        <input type="button" value="show() 보여주기">
+        <input type="button" value="toggle() 기능2개">
+        <input type="button" value="fadeOut() 점점">
+        <input type="button" value="fadeIn() 점점">
+        <input type="button" value="fadeToggle() 기능2개">
+        <input type="button" value="slideUp() 블라인드">
+        <input type="button" value="slideDown() 블라인드">
+        <input type="button" value="slideToggle() 기능2개">
+        <hr/>
+        <img src="../img/img6.jpg"/>
+        <img src="../img/img4.jpg"/>
+    </div>
+</body>
+
+</html>

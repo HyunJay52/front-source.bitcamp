@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+   <meta charset='UTF-8'>
+   <title>키 이벤트_글자 제한 이벤트</title>
+   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+    <style>
+        #reply{
+            width:400px; height: 150px;
+        }
+    </style>
+   <script>
+      $(function(){
+         //onkeydown, onkeyup, onkeypress, onkeyrelease
+         $('#reply').keyup(function(){
+             //현재 입력된 글자 수를 구해서 남은 문자 수에 찍어주기 100글자 제한
+             var txtCount = 100 - $('#reply').val().length;
+
+             $('span').text(txtCount);
+            
+             if(txtCount===0){
+                 alert("100글자 이상 입력 할 수 없습니다.")
+             }
+
+         })
+      });
+   </script>
+</head>
+<body>
+<div>남은 문자 수: <span>100</span></div>
+<textarea id="reply" maxlength="100"></textarea>
+</body>
+</html>

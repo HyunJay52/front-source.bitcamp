@@ -71,25 +71,31 @@
             $('li').on({
                 mouseenter: function(){
                     $(this).attr("id", "event1")
-                    $(this).children('img').css('top','-10px').css('transition-duration','1s');
-                    //timer = setInterval('imgDown()', 300);
+                    //$(this).children('img').css('top','-10px').css('transition-duration','1s');
+
+                    var idx = $('li').index(this);
+                    console.log(idx);
+                    timer = setInterval('imgDown(idx)', 1000);
                 }, 
                 mouseleave: function(){
-                    //$(this).removeAttr("id");
-                    $(this).children('img').css('top','-150px').css('transition-duration','1s');
-                    clearInterval(timer);
+                    $(this).removeAttr("id");
+                    //$(this).children('img').css('top','-150px').css('transition-duration','1s');
+                    if($('this').attr('id')===null){
+                        clearInterval(timer);
+                    };
                 }
             });
 
         });
 
         var cnt=0;
-        function imgDown() {
+        function imgDown(idx) {
             cnt++;
-            console.log('----',document.getElementsByClassName("label")[0].style.top)
-            var label = document.getElementsByClassName("label")[0].style;
-            var down = parseInt(document.getElementsByClassName("label")[0].style.top);
+            var label = document.getElementsByClassName("label")[idx].style;
+            console.log('get idx > > > ',idx);
+            var down = parseInt(document.getElementsByClassName("label")[idx].style.top);
             label.top = down + cnt +"px";
+            console.log(label.top);
             if(down===0){
                 cnt --;
                 label.top = down + cnt + 'px';

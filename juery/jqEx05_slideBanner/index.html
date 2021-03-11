@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Document</title>
+    <link rel="stylesheet" href="../lib/jquery-ui.min.css" type="text/css" />
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+    <script src="../lib/jquery-ui.min.js"></script>
+
+    <style>
+        body, span, div, ul{
+            margin:0; padding: 0;
+        }
+        span{
+            line-height: 120px;
+        }
+        .imgSlide{
+            width:500px; height: 500px;
+        }
+        .img{
+            width:500px; height:500px;
+            float:left;
+        }
+        ul{
+            width:500px; height: 500px;
+            border:1px solid mediumpurple;
+        }
+        li{
+            list-style-type: none;
+            padding:5px;
+            color:rgb(240, 130, 86);
+        }
+        #imgUl{
+            width: 500px;
+        }
+        #imgUl>li{
+            width: 500px; height: 500px;
+            float: left;
+        }
+    </style>
+
+    <script>
+        $(function () {
+            var imgArr = ['img1.jpg', 'zoom.gif', 'img3.jpg', 'img4.jpg', 'kakao.jpg'];
+            var imgTag = "";
+            imgArr.map(function(val, idx){
+                imgTag += "<li style='background-image: url(../../img/"+val+")'></li>";
+                //$("#imgUl").css("background-img")
+                console.log("dlalwl?")
+            });
+            $("#imgUl").append(imgTag);
+        });
+    </script>
+</head>
+
+<body>
+<div id="main">
+    <span><h1>이미지 슬라이드</h1></span>
+
+    <div class="imgSlide">
+        <ul id="imgUl">
+        </ul>
+        <!-- <img src="../../img/clouds.jpg" class="img"/> -->
+        
+        <ul>
+            <li><h1>두번째 슬라이드</h1></li>
+            <li><h2>두번째 설명</h2></li>
+            <li>가락시장에 많고 많은 분식점 중에 술 파는 분식점이 있다.</li>
+        </ul>
+        <ul>
+            <li><h1>두번째 슬라이드</h1></li>
+            <li><h2>두번째 설명</h2></li>
+            <li>가락시장에 많고 많은 분식점 중에 술 파는 분식점이 있다.</li>
+        </ul>
+        <img src="img/slideBtn.png"/>
+
+    </div>
+
+</div>
+</body>
+
+</html>

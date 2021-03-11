@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Animate</title>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+
+    <style>
+        #a1,
+        #a2,
+        #a3 {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+        }
+
+        #a1 {
+            background-color: orange;
+            text-align: center;
+            line-height: 100px;
+        }
+    </style>
+
+    <script>
+        $(function () {
+            //animate(): 갹체를 이동 할 수 있다.
+            // > 선택자.animate({json 형식으로 옵션 지정}, 밀리초, 콜백함수(생략가능));
+            //                                        slow, fast, normal, 밀리초 / 콜백함수는 animate 모두 실행된 후
+            $('#a1').animate({
+                marginLeft: "1000px",
+                width: "200px",
+                height: "200px",
+                marginTop: "300px"
+            }, 3000).animate({marginLeft:"0px", lineHeight:"200px"}, 3000);
+
+            $("#a2").animate({
+                marginLeft: "1000px"
+            }, 5000, function () {
+                $("#a1").css("background-color", "pink");
+            });
+
+            //delay(): 시간을 지연시켜서 출발시킴. pause > start
+            $("#a3").delay(3000).animate({marginLeft:"1200px", marginTop:"500px"},3000);
+
+            //stop(): animate 정지 시키기
+            $('#a1, #a2, #a3').mouseover(function(){
+                $(this).stop(); //마우스 오버가 된 객체가 중지됨
+            });
+            //https://jqueryui.com/easing/
+
+        });
+
+        // css({
+        //     'display': 'blcok',
+        //     'color': 'blue', ...
+        // }) <<< json 형식으로 스타일 설정
+    </script>
+</head>
+
+<body>
+    <div id="a1">ANIMATE</div>
+    <img src='../img/img3.jpg' id="a2" /><br/>
+    <img src='../img/lionee.png' id="a3" />
+</body>
+
+</html>

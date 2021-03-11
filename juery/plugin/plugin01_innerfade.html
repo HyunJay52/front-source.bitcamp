@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>plugin innerfade</title>
+    <!-- API : https://gist.github.com/coolniikou/665255 , jquery 다음에 연결-->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+    <script src='jquery.innerfade.js'></script>
+
+    <style>
+        ul, li{
+            margin: 0px; padding: 0px; list-style-type: none;
+        }
+        #innerImg {
+            width: 500px;
+            height: 350px;
+        }
+
+        #innerImg img {
+            width: 500px;
+            height: 350px;
+        }
+        #txt>li{
+            height: 150px; border: 2px solid green;
+            background-color: sandybrown;
+        }
+    </style>
+    <script>
+        $(function () {
+            $("#inner").innerfade({
+                animationtype: 'slide'//slide, fade(default) 
+                , speed: 3000//slow, fast, normal, 밀리초
+                , timeout: 2000//쇼대기 시간 = delay?
+                , type: 'random' //random, sequence(default), random_start
+                , containerheight: 'auto'
+            });
+
+            $("#txt").innerfade({
+                speed:3000,
+                timeout:500,
+                type:'random_start',
+                animationtype: 'slide'
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div id="innerImg">
+        <ul id="inner">
+            <li><a href="http://www.daum.net"><img src="../../img/zoom.gif" /></a></li>
+            <li><a href="https://www.naver.com"><img src="../../img/hobby3.gif" /></a></li>
+            <li><a href="http://www.nate.com"><img src="../../img/img1.jpg" /></a></li>
+            <li><a href=""><img src="../../img/img3.jpg" /></a></li>
+            <li><a href=""><img src="../../img/img6.jpg" /></a></li>
+        </ul>
+    </div>
+    <div id="innerTxt">
+        <ul id="txt">
+            <li>animationtype: Type of animation 'fade' or 'slide' (Default: 'fade'), </li>
+            <li>animationtype: Type of animation 'fade' or 'slide' (Default: 'fade'), </li>
+            <li>animationtype: Type of animation 'fade' or 'slide' (Default: 'fade'), </li>
+            <li>animationtype: Type of animation 'fade' or 'slide' (Default: 'fade'), </li>
+            <li>animationtype: Type of animation 'fade' or 'slide' (Default: 'fade'), </li> 
+            <li>animationtype: Type of animation 'fade' or 'slide' (Default: 'fade'), </li>
+            <!-- <li>speed: Fading-/Sliding-Speed in milliseconds or keywords (slow, normal or fast) (Default: 'normal'), </li>
+            <li>timeout: Time between the fades in milliseconds (Default: '2000'), </li>
+            <li>type: Type of slideshow: 'sequence', 'random' or 'random_start' (Default: 'sequence'),<br/> 
+                containerheight: Height of the containing element in any css-height-value (Default: 'auto'),</li>
+            <li>runningclass: CSS-Class which the container getâs applied (Default: 'innerfade'),</li>
+            <li>children: optional children selector (Default: null)</li> -->
+        </ul>
+    </div>
+</body>
+
+</html>
+
+<!-- (div#innerImg>ul>(li>a[href=#]>img[src=../../po_img/$.png])*6)+(div#innerText) -->

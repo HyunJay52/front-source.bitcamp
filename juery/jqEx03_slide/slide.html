@@ -52,6 +52,8 @@
     </style>
 
     <script>
+        var timer = "";
+        var timer2 = "";
         $(function () {
             
             var list = "<ul><li>MENU</li><li>ABOUT</li><li>WORK</li><li>CONTACT</li></ul>";
@@ -67,40 +69,59 @@
 
             $('li').append("<img src='img/label.png' class='label'/>");
             
-            var timer = "";
+            //var timer = "";
             $('li').on({
                 mouseenter: function(){
-                    $(this).attr("id", "event1")
+                    //$(this).attr("id", "event1")
                     //$(this).children('img').css('top','-10px').css('transition-duration','1s');
-
                     var idx = $('li').index(this);
                     console.log(idx);
-                    timer = setInterval('imgDown(idx)', 1000);
+                    clearInterval(timer);
+                    //clearInterval(timer2);
+                    timer = setInterval('imgDown('+idx+')', 10);
                 }, 
                 mouseleave: function(){
-                    $(this).removeAttr("id");
+                    //$(this).removeAttr("id");
                     //$(this).children('img').css('top','-150px').css('transition-duration','1s');
-                    if($('this').attr('id')===null){
                         clearInterval(timer);
-                    };
+                        var idx = $('li').index(this);
+                        clearInterval(timer2);
+                        timer2 = setInterval('imgUp('+idx+')', 10);
+                        
                 }
             });
 
         });
 
-        var cnt=0;
+        var cnt=5;
+        var cntUp=-5;
         function imgDown(idx) {
-            cnt++;
-            var label = document.getElementsByClassName("label")[idx].style;
-            console.log('get idx > > > ',idx);
-            var down = parseInt(document.getElementsByClassName("label")[idx].style.top);
-            label.top = down + cnt +"px";
-            console.log(label.top);
-            if(down===0){
-                cnt --;
-                label.top = down + cnt + 'px';
+            var label = $('.label').eq(idx).position().top;
+            console.log('get top > > > ',label);
+            $('.label').eq(idx).css("top", label+cnt+"px");
+            if(label>=-20){
+                clearInterval(timer);
+                $('.label').eq(idx).css("top", "-20px");
+            }
+            if(idx==0){
+
+            }else if(idx==1){
+
+            }else if(idx==2){
+                
+            }else if(idx==3){
+                
             }
         };
+        function imgUp(idx){
+            var label = $('.label').eq(idx).position().top;
+            console.log('get top222 > > > ',label);
+            $('.label').eq(idx).css("top", label+cntUp+"px");
+            if(label<=-150){
+                clearInterval(timer2);
+                $('.label').eq(idx).css("top", "-150px");
+            }
+        }
     </script>
 </head>
 <body>

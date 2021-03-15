@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>div로 grid 만들기</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="lib/bootstrap.css" type="text/css" />
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+    <script src="lib/bootstrap.js"></script>
+    <style>
+        div {
+            border: 1px solid peru;
+        }
+    </style>
+    <script>
+        $(function () {
+
+        });
+    </script>
+</head>
+
+<body>
+    <!--
+        .row: 1줄로 정렬해줌 > 12칸으로 나눠져있다
+        .col-*-*: 칸의 크기(1st *: 칸의 여백크기> xs, sm, md. lg. xl)와 
+                    여백(2nd *: 12칸 중에서 차지 할 칸의 수 1~12) 설정 ... 정렬하면 padding이 사라짐
+    -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">111</div>
+            <div class="col-lg-4">222</div>
+            <div class="col-lg-2">333</div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-1">AAA</div>
+            <div class="col-lg-4">BBB</div>
+            <div class="col-lg-3">CCC</div>
+            <div class="col-lg-4">DDD</div>
+        </div>
+    </div>
+</body>
+
+</html>

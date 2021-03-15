@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang='ko'>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>filters</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <link rel='stylesheet' href='lib/bootstrap.css' type='text/css' />
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+    <script src='lib/bootstrap.js'></script>
+    <script>
+        $(function () {
+            $("#myInput").keyup(function(){
+                var value = $(this).val().toLowerCase(); //검색어로 입력한 문자열 $("#myInput").val() or $(this).val()
+
+                $("#memList>tr").filter(function(){ //tr의 수만큼 반복
+                    var idx = $(this).text().indexOf(value); //첫번째 tr = this, 없으면 -1 있으면 0~n 사이값 반환
+
+                    //            () < true: 그냥 둠, false: (tr을)숨김
+                    $(this).toggle(idx>-1);
+
+                });
+            });
+
+            //
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>~ ~ ~ filter test ~ ~ ~</h1>
+        <input type="text" id="myInput" placeholder="search" />
+        <hr />
+        <table class="table table-hover">
+            <thead>
+                <tr class="table table-warning">
+                    <td>이름</td>
+                    <td>아이디</td>
+                    <td>연락처</td>
+                    <td>주소</td>
+                </tr>
+            </thead>
+            <tbody id="memList">
+                <tr>
+                    <td>홍길동</td>
+                    <td>gildong1</td>
+                    <td>010-1234-1234</td>
+                    <td>서울시 마포구</td>
+                </tr>
+                <tr>
+                    <td>이순신</td>
+                    <td>trueleader</td>
+                    <td>010-0000-1234</td>
+                    <td>전라남도 진도</td>
+                </tr>
+                <tr>
+                    <td>나혜석</td>
+                    <td>nahey01</td>
+                    <td>010-0011-9934</td>
+                    <td>전라북도 전주</td>
+                </tr>
+                <tr>
+                    <td>박경리</td>
+                    <td>togee088</td>
+                    <td>010-1234-9999</td>
+                    <td>경상남도 통영</td>
+                </tr>
+                <tr>
+                    <td>월터 미티</td>
+                    <td>zone_out</td>
+                    <td>010-1234-7777</td>
+                    <td>서울시 강남구</td>
+                </tr>
+                <tr>
+                    <td>유관순</td>
+                    <td>mywish123</td>
+                    <td>010-7878-1004</td>
+                    <td>서울시 중구</td>
+                </tr>
+                <tr>
+                    <td>세종대왕</td>
+                    <td>hangeulzzang</td>
+                    <td>010-8989-1004</td>
+                    <td>서울시 중구</td>
+                </tr>
+                <tr>
+                    <td>방정환</td>
+                    <td>chlidren123</td>
+                    <td>010-9988-1804</td>
+                    <td>서울시 영등포구</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Document</title>
+    <link rel="stylesheet" href="lib/bootstrap.css" type="text/css" />
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+    <script src="lib/bootstrap.js"></script>
+    <style>
+        .jumbotron {
+            padding: 20px 10px;
+        }
+        table tr:first-child{
+            font-weight: bold;
+        }
+        table tr td:first-child, table tr td:nth-child(2){
+            text-align: center;
+        }
+    </style>
+    <script>
+        $(function () {
+
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- jumbotron : padding, 둥근사각형, 회색배경이 설정된 클래스 -->
+        <div class="jumbotron">
+            영국의 얼터너티브 락 밴드. 2002년에 평균 13세의 나이로 밴드를 결성하여 10년이 넘도록 활동을 해오고, 2013년에 1집 "The 1975"를 발매하여 메이저 데뷔를 하였다.
+
+            2016년 2월 26일, 정규 2집 "I Like It When You Sleep, for You Are So Beautiful Yet So Unaware of It"를 발매하여 빌보드 앨범차트
+            1위로 데뷔했다! 밴드의 인기가 급상승한 것을 알 수 있는 부분이다.
+        </div>
+        <!-- .table : 표에 적용된 Line을 표시한다. (top에 선 표시) 
+             .table table-striped : 줄단위 배경색(기본 회색)
+             .table table-bordered : 표의 선을 표시한다. (전체 선 표시)
+             .table table-hover : 마우스 오버 아웃 시, 배경색 변경
+             .table table-dark : 표의 배경을 블랙으로 변경
+        -->
+        <table class="table table-striped table-dark table-hover">
+            <tr>
+                <td>번호</td>
+                <td>이름</td>
+                <td>연락처</td>
+            </tr>
+            <tr>
+                <td>100</td>
+                <td>홍길동</td>
+                <td>010-2222-4444</td>
+            </tr>
+            <tr>
+                <td>200</td>
+                <td>김길동</td>
+                <td>010-8888-4444</td>
+            </tr>
+            <tr>
+                <td>300</td>
+                <td>최길동</td>
+                <td>010-3333-4444</td>
+            </tr>
+            <tr>
+                <td>400</td>
+                <td>이길동</td>
+                <td>010-2222-4224</td>
+            </tr>
+            <tr>
+                <td>500</td>
+                <td>박길동</td>
+                <td>010-2222-7777</td>
+            </tr>
+            <tr>
+                <td colspan="3">문의사항은 02-1234-1234로 연락바랍니다</td>
+            </tr>
+        </table>
+
+        <!--
+            테이블에 색상을 지정하는 방법 (다른 태그에서도 가능)
+            .table-primary : blue
+            .table-success : green
+            .table-danger : red
+            .table-info : blue+green
+            .table-warning : yellow
+            .table-active : gray
+            .table-secondary : gray
+        -->
+        <table class="table">
+            <tr class="table-primary">
+                <td>번호</td>
+                <td>이름</td>
+                <td>연락처</td>
+            </tr>
+            <tr class="table-success">
+                <td>100</td>
+                <td>홍길동</td>
+                <td>010-2222-5555</td>
+            </tr>
+            <tr class="table-danger">
+                <td>200</td>
+                <td>김길동</td>
+                <td>010-8888-4444</td>
+            </tr>
+            <tr class="table-info">
+                <td>300</td>
+                <td>최길동</td>
+                <td>010-3333-4444</td>
+            </tr>
+            <tr class="table-warning">
+                <td>400</td>
+                <td>이길동</td>
+                <td>010-2222-4224</td>
+            </tr>
+            <tr class="table-active">
+                <td>500</td>
+                <td>박길동</td>
+                <td>010-2222-9898</td>
+            </tr>
+            <tr class="table-secondary">
+                <td colspan="3">문의사항은 02-1234-1234로 연락바랍니다</td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>

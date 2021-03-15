@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>bx sldier</title>
+    <!--
+        bx slider
+         > http://github.com/stevenwanderski/bxslider-4
+         - setting step -
+            1. import jquery
+            2. import easing
+            3. import bxslider js
+            4. import bxslider css
+            5. copy and paste images folder
+        readme에서 호출과 옵션 확인하기!
+    -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+    <script src="jquery.easing.1.3.js"></script>
+    <script src="jquery.bxslider.js"></script>
+    <link rel="stylesheet" href="jquery.bxslider.css" type="text/css">
+    <style>
+        .container {
+            width: 500px;
+            margin: 0 auto;
+        }
+        #slider img{
+            width: 100%;
+            height: 350px;
+        }
+        ul, li{
+            margin: 0; padding: 0;
+        }
+    </style>
+    <script>
+        $(function () {
+            $("#slider").bxSlider({
+                mode: 'horizontal' //horizontal(default), vertical, fade
+                , slideWidth: 500 //px 안 붙여도 됨
+                , slideHeight: 150 //안 먹는듯?
+                , speed: 2000 //default:500
+                , auto: true//자동시작
+                //, randomStart: true//시작을 랜덤으로 true, false
+                , captions: true //설명(img tag-title)을 표시 true, false
+                // , ticker: true //자막처럼
+                , infiniteLoop: false//반복여부 false > 끝에 도달하면 더 이상 안 넘어감, true(default)
+                // , adaptiveHeight: false //이미지 크기에 따라 높이를 자동조절함 false하면 제일 큰 이미지 사이즈로 세팅되어있음
+                ,hideControlOnEnd: true //처음과 마지막 이미지에서 버튼 삭제, infinitLoop 해제시 사용가능
+                // , touchEnabled: false //마우스 이벤트 발생하면 스와이프 발생
+
+                //easing 설정하기
+                , userCSS: false //easing 사용여부(true: easing 사용 안함, false: easing 사용함)
+                , easing: 'easeOutElastic'
+                
+                //callback 설정
+                , onSliderLoad: function(){
+                    //슬라이드 로딩이 완료되면 호출되는 함수
+                    console.log("클라이언트 로딩 완료 시, 슬라이드 실행 완료!")
+                }
+                , onSlideAfter: function(){
+                    //슬라이드가 움직이고 나면 호출이 되는 함수
+                    console.log("슬라이드가 움직이면 호출!")
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <ul id="slider">
+            <li><a href="http://www.daum.net"><img src="../../img/zoom.gif" title="첫번째 이미지" /></a></li>
+            <li><a href="https://www.naver.com"><img src="../../img/hobby3.gif" title="두번째 이미지" /></a></li>
+            <li><a href="http://www.nate.com"><img src="../../img/img1.jpg" title="셋번째 이미지" /></a></li>
+            <li><a href=""><img src="../../img/img3.jpg" title="네번째 이미지" /></a></li>
+            <li><a href=""><img src="../../img/img6.jpg" title="세번째 이미지" /></a></li>
+            <li><a href=""><img src="../../img/img5.jpg" title="다섯번째 이미지" /></a></li>
+            <li><a href=""><img src="../../img/kakao.jpg" title="여섯번째 이미지" /></a></li>
+            <li><a href=""><img src="../../img/lionee.png" title="일곱번째 이미지" /></a></li>
+            <li><a href=""><img src="../../img/clouds.jpg" title="여덜번째 이미지" /></a></li>
+        </ul>
+    </div>
+</body>
+
+</html>

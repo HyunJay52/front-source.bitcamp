@@ -32,6 +32,39 @@
         var date = new Date(dateTime.getFullYear(), dateTime.getMonth()+1, 0);
         document.write("<br/> 마지막 날 > "+date.getDate());
         
+        //built-im object > 자바스크립트에 내장된 객체 = String, Date, Array, Math, RegEx Object
+        document.write("<hr/>");
+        document.write("<h2>내장객체 생성하기</h2><br/>");
+        var tv = new Object();
+        tv.color = "#ddd";
+        tv.price = 30000;
+        tv.info = function(){
+            document.write("색상 > "+this.color, "<br/>");
+            document.write("가격 > "+this.price, "<br/>");
+        }
+
+        var car = {
+            color:"#000", price:50000, info: function(){
+                document.write("색상 > "+this.color,"<br/>");
+                document.write("가격 > "+this.price,"<br/>");
+            }
+        } //json 데이터 입력
+        
+        document.write("<h3>tv 객체의 메서드 호출 </h3>");
+        tv.info();
+        document.write("<h3>car 객체의 메서드 호출</h3>")
+        car.info();
+
+        //날짜 데이터
+        document.write("<hr/><h2>올해부터 연발까지 남은 날짜 ?</h2>");
+        var today = new Date();
+        var nowYear = today.getFullYear();
+        var lastDate = new Date(nowYear, 11, 31);
+        var diffDate = lastDate.getTime() - today.getTime();
+
+        var result = Math.ceil(diffDate/(60*1000*60*24));
+        document.write(" > > > 연말까지 남은 날? ''"+result+"'' 일 남았습니다...");
+
         
     </script>
 </head>

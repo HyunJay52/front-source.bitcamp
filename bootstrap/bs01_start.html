@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>bootstrap start!</title>
+    <!--
+        https://getbootstrap.com/ > 직접 다운로드 또는 jsDelivr을 이용해서 import해도 된다.
+        1. bootstrap은 대부분 반응형으로 만들어졌기 때문에 
+            'viewport'를 맞춰줘야한다. (css18_media 참조)
+        2. bootstrap.css를 설정해야한다.
+        3. jquery 설정
+        4. bootsrap.js 설정
+
+   -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="lib/bootstrap.css" type="text/css"/>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+    <script src="lib/bootstrap.js"></script>
+
+    <style>
+        /*이미 bootstrap에 존재하는 클래스명 > 다시 설정(추가, 변경)*/
+        .container{
+            background-color: lightgoldenrodyellow;
+        }
+        .container-fluid{
+            background-color: lightpink;
+        }
+    </style>
+    <script>
+        $(function () {
+
+        });
+    </script>
+</head>
+
+<body>
+    <!--
+        <bootstrap class>
+            1. .container: 반응형 폭 설정, padding 있음
+            2. .container-fluid: 폭을 100% 설정, padding 있음
+            3. 
+    -->
+    <div class="container"> <!--이미 bootstrap안에 있는 클래스라서 자동 세팅이 됨-->
+        <img src="../img/img5_1.jpg" width="100%"/>
+    </div>
+    <div class="container-fluid"> 
+        <img src="../img/img1_1.jpg"/>
+    </div>
+</body>
+
+</html>

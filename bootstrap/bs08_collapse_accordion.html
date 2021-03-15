@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang='ko'>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>collapse_accordion</title>
+    <!--글자 숨김처리 > 클릭하면 텍스트가 확장됨 e.g) 자세히 보기
+        자주 묻는 질문 처리할때 하는 방식
+    -->
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <link rel='stylesheet' href='lib/bootstrap.css' type='text/css' />
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+    <script src='lib/bootstrap.js'></script>
+    <script>
+        $(function () {
+
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <h2>collapse 예시</h2>
+        <!--버튼 선택 시, 컨텐츠가 보였다가 안 보였다가-->
+        <!--버튼과 내용 연결을 버튼(data-target)-내용(id)으로 연결-->
+        <button class="btn btn-info" data-target="#context" data-toggle="collapse">more info</button>
+        <div id="context" class="collapse">Idea: Capture carbon from power plant flue gas and convert it into usable
+            calcium carbonate.
+            <!--class="collapse show" 처음에 보이는 상태로 설정-->
+            In a process that mimics the way marine organisms make their shells,
+            CO2 mineralizes into a solid form as strong and sturdy as regular commercial cement.
+        </div>
+        <hr />
+
+        <sapn data-target="#view1" data-toggle="collapse" style="color:orange">can do this in span?</sapn>
+        <div id="view1" class="collapse">you can make collpase acoordion in span!</div>
+        <hr />
+        <button class="btn btn-secondary" data-target="#image" data-toggle="collapse">show image</button>
+        <div id="image" class="collapse"><img src="../img/img1_1.jpg" /></div>
+        <hr />
+
+        <h2>accordion 예시</h2>
+        <div id="accordion">
+            <div class="card">
+                <!--card/ card-header/ card-body(배경색 없음)/ card-footer-->
+                <div class="card-header card-link" data-target="#v1" data-toggle="collapse" data-parent="#accordion">
+                    아코디온 적용 예제1</div>
+                <div id="v1" class="collapse">
+                    The Idea: Fertilize grasslands with composted cow manure and plant waste.
+                    The Marin Carbon Project wants farmers to apply the organic mix to their pastures to vastly increase
+                    their ability to act as carbon sinks.
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header card-link" data-target="#v2" data-toggle="collapse" data-parent="#accordion">
+                    아코디온 적용 예제2</div>
+                <div id="v2" class="collapse bg-success">
+                    <img src="../img/hobby3.gif"/>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header card-link" data-target="#v3" data-toggle="collapse" data-parent="#accordion">
+                    아코디온 적용 예제3</div>
+                <div id="v3" class="collapse bg-warning">
+                    The Idea: Fertilize grasslands with composted cow manure and plant waste.
+                    The Marin Carbon Project wants farmers to apply the organic mix to their pastures to vastly increase
+                    their ability to act as carbon sinks.
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

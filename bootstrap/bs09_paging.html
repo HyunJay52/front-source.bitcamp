@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang='ko'>
+<head>
+   <meta charset='UTF-8'>
+   <title>paging</title>
+   <!--page 만드는건 jsp로 db 연결해야지 가능-->
+     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+   <link rel='stylesheet' href='lib/bootstrap.css' type='text/css'/>
+   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+  <script src='lib/bootstrap.js'></script>
+   <script>
+      $(function(){
+         
+      });
+   </script>
+</head>
+<body>
+    <div class="container">
+        <h1>paging 하기</h1>
+        <!-- ul tag를 이용한 Paging 방법
+            .pagination : 리스트 페이징하기, 묶어주는 클래스에다 하기
+            .page-item : 
+            .page-link : padding, border
+            .disable : 링크 비활성화 - page-item 클래스와 함께 사용!
+            .active : 현재 보고있는 페이지
+
+            <글자 크기, 여백, padding 관련>
+            .pagination-lg or - md or - sm : 묶어주는 클래스에 하기
+        -->
+        <ul class="pagination">
+            <li class="page-item disabled"><a href="#" class="page-link">prev</a></li>
+            <li class="page-item"><a href="#" class="page-link">1</a></li>
+            <li class="page-item"><a href="#" class="page-link">2</a></li>
+            <li class="page-item active"><a href="#" class="page-link">3</a></li>
+            <li class="page-item"><a href="#" class="page-link">4</a></li>
+            <li class="page-item"><a href="#" class="page-link">5</a></li>
+            <li class="page-item disabled"><a href="#" class="page-link">next</a></li>
+        </ul>
+        <hr/>
+        <!--
+            .breadcrumb : 리스트의 배경이 설정, border는 없음
+            .
+
+        -->
+        <ul class="breadcrumb pagination-lg">
+            <li class="page-item"><a href="#" class="page-link">prev</a></li>
+            <li class="page-item"><a href="#" class="page-link">1</a></li>
+            <li class="page-item"><a href="#" class="page-link">2</a></li>
+            <li class="page-item"><a href="#" class="page-link">3</a></li>
+            <li class="page-item active"><a href="#" class="page-link">4</a></li>
+            <li class="page-item"><a href="#" class="page-link">5</a></li>
+            <li class="page-item disabled"><a href="#" class="page-link">next</a></li>
+        </ul>
+    </div>
+</body>
+</html>

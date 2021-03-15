@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang='ko'>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>alert</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <link rel='stylesheet' href='lib/bootstrap.css' type='text/css' />
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+    <script src='lib/bootstrap.js'></script>
+    <style>
+        .alert-gray{
+            background-color: #ddd;
+        }
+    </style>
+    <script>
+        $(function () {
+
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <!--
+            .alert: 경고창 만들기 .. bottom에 여백이 있다
+            배경색 설정
+            .alert-success, .alert-info, .alert-warning, .alert-danger, ...
+        -->
+        <div class="alert alert-info">대화상자 띄우기!</div>
+        <!-- 
+            닫기 기능 추가
+            data-dismiss = "alert" : x를 선탁하면 div=alert가 닫힌다.
+            .close : 오른쪽 끝으로 배치
+        -->
+        <div class="alert alert-danger">
+            아이디를 입력하세요!!!
+            <a href="#" data-dismiss="alert" class="close">&times;</a>
+        </div>
+        <div class="alert-gray">
+            <a href="bs04_jumbotron_table.html">클릭하세요</a>
+            <br/>여백?
+        </div>
+        여백 위치 어디?
+    </div>
+
+</body>
+
+</html>
